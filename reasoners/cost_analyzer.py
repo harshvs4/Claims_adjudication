@@ -70,7 +70,7 @@ Provide detailed reasoning for cost assessment.
 """
     
     result = await app.ai(
-        prompt=prompt,
+        prompt,
         schema=CostAssessment
     )
     
@@ -82,10 +82,10 @@ Provide detailed reasoning for cost assessment.
     # Store in shared memory
     await app.memory.set(
         key=f"claim:{claim.claim_id}:cost_assessment",
-        value=result.model_dump()
+        data=result.model_dump()
     )
     
-    await app.note(
+    app.note(
         f"💰 Cost analysis complete: "
         f"{'REASONABLE' if result.cost_reasonable else 'QUESTIONABLE'}"
     )

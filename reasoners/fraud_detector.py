@@ -21,7 +21,7 @@ async def detect_fraud_patterns(app: Agent, claim: Claim) -> FraudAssessment:
         FraudAssessment with fraud risk analysis
     """
     
-    await app.note(f"🔍 Fraud detector analyzing {claim.claim_id}")
+    app.note(f"🔍 Fraud detector analyzing {claim.claim_id}")
     
     # Get deterministic fraud indicators
     indicators = calculate_fraud_score(claim)
@@ -31,44 +31,46 @@ async def detect_fraud_patterns(app: Agent, claim: Claim) -> FraudAssessment:
     
     # Create semantic representation for vector search
     claim_description = get_claim_description(claim)
-    
-    # Store this claim with vector embedding for future searches
-    await app.memory.set_vector(
-        id=claim.claim_id,
-        embedding=claim_description,
-        metadata={
-            "claim_id": claim.claim_id,
-            "diagnosis": claim.diagnosis_name,
-            "provider": claim.provider.name,
-            "provider_reputation": claim.provider.reputation,
-            "amount": claim.total_claimed_amount,
-            "fraud_score": indicators['fraud_score'],
-            "actual_type": getattr(claim, 'claim_type', 'UNKNOWN')
-        }
-    )
-    
-    # Search for similar historical claims
-    similar_claims = await app.memory.similarity_search(
-        query=claim_description,
-        top_k=5
-    )
-    
-    # Analyze similar claims for fraud patterns
+
+    # Vector-based similar claim search (requires embedding model)
+    similar_claims = []
     fraud_pattern_count = 0
     similar_details = []
-    
-    if similar_claims:
-        for idx, similar in enumerate(similar_claims, 1):
-            metadata = similar.get('metadata', {})
-            is_fraud = metadata.get('actual_type') == 'FRAUD'
-            if is_fraud:
-                fraud_pattern_count += 1
-            
-            similar_details.append(
-                f"{idx}. {metadata.get('diagnosis', 'Unknown')} - "
-                f"${metadata.get('amount', 0):,.0f} at {metadata.get('provider', 'Unknown')} "
-                f"[{'FRAUD' if is_fraud else 'LEGITIMATE'}]"
-            )
+
+    try:
+        await app.memory.set_vector(
+            key=claim.claim_id,
+            embedding=claim_description,
+            metadata={
+                "claim_id": claim.claim_id,
+                "diagnosis": claim.diagnosis_name,
+                "provider": claim.provider.name,
+                "provider_reputation": claim.provider.reputation,
+                "amount": claim.total_claimed_amount,
+                "fraud_score": indicators['fraud_score'],
+                "actual_type": getattr(claim, 'claim_type', 'UNKNOWN')
+            }
+        )
+
+        similar_claims = await app.memory.similarity_search(
+            query_embedding=claim_description,
+            top_k=5
+        )
+
+        if similar_claims:
+            for idx, similar in enumerate(similar_claims, 1):
+                metadata = similar.get('metadata', {})
+                is_fraud = metadata.get('actual_type') == 'FRAUD'
+                if is_fraud:
+                    fraud_pattern_count += 1
+
+                similar_details.append(
+                    f"{idx}. {metadata.get('diagnosis', 'Unknown')} - "
+                    f"${metadata.get('amount', 0):,.0f} at {metadata.get('provider', 'Unknown')} "
+                    f"[{'FRAUD' if is_fraud else 'LEGITIMATE'}]"
+                )
+    except Exception:
+        app.note(f"⚠ Vector search unavailable, using deterministic + AI analysis only")
     
     # AI fraud analysis
     prompt = f"""You are a fraud investigation specialist with expertise in healthcare fraud.
@@ -109,7 +111,7 @@ Be thorough but fair. Catch fraud without denying legitimate care.
 """
     
     result = await app.ai(
-        prompt=prompt,
+        prompt,
         schema=FraudAssessment
     )
     
@@ -126,10 +128,10 @@ Be thorough but fair. Catch fraud without denying legitimate care.
     # Store in shared memory
     await app.memory.set(
         key=f"claim:{claim.claim_id}:fraud_assessment",
-        value=result.model_dump()
+        data=result.model_dump()
     )
     
-    await app.note(
+    app.note(
         f"✅ Fraud analysis complete: "
         f"Risk={result.fraud_risk_score:.2f}, "
         f"Similar fraud={fraud_pattern_count}"

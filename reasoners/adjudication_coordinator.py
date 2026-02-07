@@ -133,7 +133,7 @@ This decision will be stored in an immutable audit trail.
 """
     
     decision = await app.ai(
-        prompt=prompt,
+        prompt,
         schema=FinalDecision
     )
     
@@ -166,7 +166,7 @@ async def coordinate_adjudication(
     """
     start_time = time.time()
     
-    await app.note(f"🎯 Starting adjudication for {claim_id}")
+    app.note(f"🎯 Starting adjudication for {claim_id}")
     
     # Load claim
     from skills.data_extraction import load_claim
@@ -197,13 +197,12 @@ async def coordinate_adjudication(
     )
     
     # Store in global memory for audit trail
-    await app.memory.set(
+    await app.memory.global_scope.set(
         key=f"adjudication:{claim_id}:final",
-        value=result.model_dump(),
-        scope="global"
+        data=result.model_dump()
     )
     
-    await app.note(
+    app.note(
         f"✅ ADJUDICATION COMPLETE: {decision.decision} "
         f"(confidence: {decision.confidence:.2f}, time: {processing_time}ms)"
     )

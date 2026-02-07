@@ -190,7 +190,7 @@ async def process_batch_claims(claim_ids: List[str]) -> dict:
             )
             results.append(result.model_dump())
         except Exception as e:
-            await app.note(f"❌ Error processing {claim_id}: {str(e)}")
+            app.note(f"❌ Error processing {claim_id}: {str(e)}")
     
     # Calculate analytics
     total = len(results)

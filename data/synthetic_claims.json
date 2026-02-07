@@ -1,1 +1,3872 @@
-[]
+[
+  {
+    "claim_id": "CLM10040",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH259097",
+      "name": "Michael Wilson",
+      "age": 24,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 100000,
+      "policy_start_date": "2024-06-10",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-01-18",
+    "claim_submission_date": "2026-01-20",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 295.73
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2534.31
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1368.07
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3822.08
+      }
+    ],
+    "total_claimed_amount": 3115.35,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10001",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH126225",
+      "name": "Jennifer Jones",
+      "age": 32,
+      "gender": "M",
+      "policy_type": "Gold",
+      "coverage_limit": 100000,
+      "policy_start_date": "2020-12-22",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-02-06",
+    "claim_submission_date": "2026-02-07",
+    "diagnosis_code": "J18.9",
+    "diagnosis_name": "Pneumonia",
+    "severity": "moderate",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1518.37
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 26080.1
+      }
+    ],
+    "total_claimed_amount": 7750.15,
+    "medical_notes": "Patient presented with pneumonia. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10032",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH691364",
+      "name": "Sarah Davis",
+      "age": 32,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 100000,
+      "policy_start_date": "2021-09-16",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-02-03",
+    "claim_submission_date": "2026-02-08",
+    "diagnosis_code": "J18.9",
+    "diagnosis_name": "Pneumonia",
+    "severity": "moderate",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2704.01
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3412.71
+      }
+    ],
+    "total_claimed_amount": 9487.11,
+    "medical_notes": "Patient presented with pneumonia. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10034",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH479781",
+      "name": "William Davis",
+      "age": 73,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 100000,
+      "policy_start_date": "2020-12-28",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-01-20",
+    "claim_submission_date": "2026-01-27",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 48.22
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 7592.79
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3804.24
+      }
+    ],
+    "total_claimed_amount": 2808.2,
+    "medical_notes": "Patient presented with low back pain. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10022",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH287241",
+      "name": "Lisa Jones",
+      "age": 51,
+      "gender": "M",
+      "policy_type": "Gold",
+      "coverage_limit": 500000,
+      "policy_start_date": "2023-03-03",
+      "prior_claims_count": 5
+    },
+    "incident_date": "2026-01-21",
+    "claim_submission_date": "2026-01-22",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 7897.69
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 150.6
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1273.56
+      }
+    ],
+    "total_claimed_amount": 2606.21,
+    "medical_notes": "Patient presented with low back pain. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10067",
+    "claim_type": "EDGE_CASE",
+    "policyholder": {
+      "policyholder_id": "PH584106",
+      "name": "Richard Jones",
+      "age": 74,
+      "gender": "F",
+      "policy_type": "Bronze",
+      "coverage_limit": 500000,
+      "policy_start_date": "2024-03-13",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-01-18",
+    "claim_submission_date": "2026-01-25",
+    "diagnosis_code": "S72.001A",
+    "diagnosis_name": "Femur Fracture",
+    "severity": "severe",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 11184.75
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3464.52
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 150.4
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1279.45
+      }
+    ],
+    "total_claimed_amount": 46413.15,
+    "medical_notes": "Patient presented with femur fracture. Rare complication requiring extended treatment. Treatment aligned with current medical guidelines.",
+    "fraud_indicators": [
+      "Cost above typical range"
+    ],
+    "complexity_factors": [
+      "Rare complication requiring extended treatment",
+      "Co-morbid conditions necessitating specialized care",
+      "Emergency surgery required - higher facility costs",
+      "Extended ICU stay due to critical condition",
+      "Specialized equipment/procedures required for rare presentation"
+    ],
+    "expected_outcome": "APPROVE_WITH_REVIEW"
+  },
+  {
+    "claim_id": "CLM10024",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH745414",
+      "name": "Lisa Jones",
+      "age": 40,
+      "gender": "F",
+      "policy_type": "Bronze",
+      "coverage_limit": 50000,
+      "policy_start_date": "2023-05-27",
+      "prior_claims_count": 2
+    },
+    "incident_date": "2026-01-18",
+    "claim_submission_date": "2026-01-24",
+    "diagnosis_code": "K80.20",
+    "diagnosis_name": "Gallstone",
+    "severity": "moderate",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 49.73
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 54.01
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1588.81
+      }
+    ],
+    "total_claimed_amount": 16714.55,
+    "medical_notes": "Patient presented with gallstone. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10010",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH717024",
+      "name": "Sarah Smith",
+      "age": 47,
+      "gender": "M",
+      "policy_type": "Bronze",
+      "coverage_limit": 50000,
+      "policy_start_date": "2023-10-28",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-01-30",
+    "claim_submission_date": "2026-02-02",
+    "diagnosis_code": "J18.9",
+    "diagnosis_name": "Pneumonia",
+    "severity": "moderate",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 50.76
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3320.1
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 11935.14
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 7851.3
+      }
+    ],
+    "total_claimed_amount": 6626.74,
+    "medical_notes": "Patient presented with pneumonia. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10007",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH814825",
+      "name": "Thomas Rodriguez",
+      "age": 32,
+      "gender": "F",
+      "policy_type": "Bronze",
+      "coverage_limit": 250000,
+      "policy_start_date": "2024-06-24",
+      "prior_claims_count": 2
+    },
+    "incident_date": "2026-01-14",
+    "claim_submission_date": "2026-01-20",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2303.21
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 12300.72
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3739.17
+      }
+    ],
+    "total_claimed_amount": 2944.47,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10048",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH356059",
+      "name": "James Miller",
+      "age": 36,
+      "gender": "M",
+      "policy_type": "Gold",
+      "coverage_limit": 100000,
+      "policy_start_date": "2024-08-30",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-02-05",
+    "claim_submission_date": "2026-02-06",
+    "diagnosis_code": "J45.909",
+    "diagnosis_name": "Asthma",
+    "severity": "mild",
+    "provider": {
+      "id": "P003",
+      "name": "Rapid Treatment Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 108.88
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 2486.96
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 2912.59
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2214.68
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 16700.57
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 5347.35
+      }
+    ],
+    "total_claimed_amount": 3658.47,
+    "medical_notes": "Patient claims asthma. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Treatment intensity not aligned with diagnosis severity",
+      "Excessive diagnostic procedures",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10059",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH891083",
+      "name": "Lisa Smith",
+      "age": 38,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 500000,
+      "policy_start_date": "2021-05-24",
+      "prior_claims_count": 3
+    },
+    "incident_date": "2026-02-02",
+    "claim_submission_date": "2026-02-03",
+    "diagnosis_code": "N18.3",
+    "diagnosis_name": "Chronic Kidney Disease",
+    "severity": "severe",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 542.53
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 258.08
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 62111.14
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 5441.74
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 5965.48
+      }
+    ],
+    "total_claimed_amount": 49780.42,
+    "medical_notes": "Patient claims chronic kidney disease. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Treatment intensity not aligned with diagnosis severity",
+      "Excessive diagnostic procedures",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10029",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH600149",
+      "name": "John Garcia",
+      "age": 66,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 500000,
+      "policy_start_date": "2022-02-01",
+      "prior_claims_count": 5
+    },
+    "incident_date": "2026-01-24",
+    "claim_submission_date": "2026-01-28",
+    "diagnosis_code": "K80.20",
+    "diagnosis_name": "Gallstone",
+    "severity": "moderate",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 317.89
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 26120.91
+      }
+    ],
+    "total_claimed_amount": 13316.53,
+    "medical_notes": "Patient presented with gallstone. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10037",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH460455",
+      "name": "Robert Lopez",
+      "age": 85,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 500000,
+      "policy_start_date": "2023-08-03",
+      "prior_claims_count": 2
+    },
+    "incident_date": "2026-01-31",
+    "claim_submission_date": "2026-02-03",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 12456.39
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2345.77
+      }
+    ],
+    "total_claimed_amount": 2120.66,
+    "medical_notes": "Patient presented with low back pain. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10008",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH738551",
+      "name": "Sarah Williams",
+      "age": 82,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 50000,
+      "policy_start_date": "2021-09-30",
+      "prior_claims_count": 2
+    },
+    "incident_date": "2026-01-26",
+    "claim_submission_date": "2026-02-02",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1373.63
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1569.57
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3721.22
+      }
+    ],
+    "total_claimed_amount": 2534.24,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10023",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH481913",
+      "name": "Robert Johnson",
+      "age": 43,
+      "gender": "F",
+      "policy_type": "Bronze",
+      "coverage_limit": 250000,
+      "policy_start_date": "2021-05-21",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-01-24",
+    "claim_submission_date": "2026-01-27",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 25824.65
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3415.4
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 157.44
+      }
+    ],
+    "total_claimed_amount": 2309.28,
+    "medical_notes": "Patient presented with low back pain. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10016",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH888387",
+      "name": "Thomas Johnson",
+      "age": 58,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 50000,
+      "policy_start_date": "2024-09-10",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-01-08",
+    "claim_submission_date": "2026-01-11",
+    "diagnosis_code": "K80.20",
+    "diagnosis_name": "Gallstone",
+    "severity": "moderate",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 7452.39
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 320.02
+      }
+    ],
+    "total_claimed_amount": 13591.2,
+    "medical_notes": "Patient presented with gallstone. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10066",
+    "claim_type": "EDGE_CASE",
+    "policyholder": {
+      "policyholder_id": "PH794083",
+      "name": "Emily Wilson",
+      "age": 22,
+      "gender": "M",
+      "policy_type": "Bronze",
+      "coverage_limit": 500000,
+      "policy_start_date": "2024-03-29",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-02-01",
+    "claim_submission_date": "2026-02-09",
+    "diagnosis_code": "S72.001A",
+    "diagnosis_name": "Femur Fracture",
+    "severity": "severe",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 25170.06
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1442.84
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 53.09
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1490.7
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 12804.27
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 48.68
+      }
+    ],
+    "total_claimed_amount": 58120.7,
+    "medical_notes": "Patient presented with femur fracture. Specialized equipment/procedures required for rare presentation. Treatment aligned with current medical guidelines.",
+    "fraud_indicators": [
+      "Cost above typical range"
+    ],
+    "complexity_factors": [
+      "Rare complication requiring extended treatment",
+      "Co-morbid conditions necessitating specialized care",
+      "Emergency surgery required - higher facility costs",
+      "Extended ICU stay due to critical condition",
+      "Specialized equipment/procedures required for rare presentation"
+    ],
+    "expected_outcome": "APPROVE_WITH_REVIEW"
+  },
+  {
+    "claim_id": "CLM10038",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH389930",
+      "name": "Jennifer Martinez",
+      "age": 79,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 100000,
+      "policy_start_date": "2023-06-12",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-01-15",
+    "claim_submission_date": "2026-01-20",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1516.01
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2598.71
+      }
+    ],
+    "total_claimed_amount": 2302.27,
+    "medical_notes": "Patient presented with low back pain. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10027",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH891937",
+      "name": "Thomas Davis",
+      "age": 58,
+      "gender": "F",
+      "policy_type": "Bronze",
+      "coverage_limit": 500000,
+      "policy_start_date": "2024-03-19",
+      "prior_claims_count": 5
+    },
+    "incident_date": "2026-01-30",
+    "claim_submission_date": "2026-02-06",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1481.96
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 12512.51
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 47.34
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1450.75
+      }
+    ],
+    "total_claimed_amount": 2711.03,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10015",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH523389",
+      "name": "Jane Martinez",
+      "age": 48,
+      "gender": "M",
+      "policy_type": "Bronze",
+      "coverage_limit": 50000,
+      "policy_start_date": "2021-08-19",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-01-21",
+    "claim_submission_date": "2026-01-24",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1468.74
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 12412.06
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1440.0
+      }
+    ],
+    "total_claimed_amount": 3100.41,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10039",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH768854",
+      "name": "Patricia Wilson",
+      "age": 34,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 50000,
+      "policy_start_date": "2021-11-20",
+      "prior_claims_count": 2
+    },
+    "incident_date": "2026-02-01",
+    "claim_submission_date": "2026-02-02",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2450.35
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 45.74
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 8207.11
+      }
+    ],
+    "total_claimed_amount": 2928.56,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10069",
+    "claim_type": "EDGE_CASE",
+    "policyholder": {
+      "policyholder_id": "PH745239",
+      "name": "John Johnson",
+      "age": 75,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 100000,
+      "policy_start_date": "2024-04-07",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-01-26",
+    "claim_submission_date": "2026-02-01",
+    "diagnosis_code": "C50.919",
+    "diagnosis_name": "Breast Cancer",
+    "severity": "severe",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1106.61
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 54.05
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 12232.17
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 45.16
+      }
+    ],
+    "total_claimed_amount": 143487.34,
+    "medical_notes": "Patient presented with breast cancer. Specialized equipment/procedures required for rare presentation. Treatment aligned with current medical guidelines.",
+    "fraud_indicators": [
+      "Cost above typical range"
+    ],
+    "complexity_factors": [
+      "Rare complication requiring extended treatment",
+      "Co-morbid conditions necessitating specialized care",
+      "Emergency surgery required - higher facility costs",
+      "Extended ICU stay due to critical condition",
+      "Specialized equipment/procedures required for rare presentation"
+    ],
+    "expected_outcome": "APPROVE_WITH_REVIEW"
+  },
+  {
+    "claim_id": "CLM10036",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH353080",
+      "name": "Jennifer Miller",
+      "age": 28,
+      "gender": "F",
+      "policy_type": "Bronze",
+      "coverage_limit": 100000,
+      "policy_start_date": "2021-03-26",
+      "prior_claims_count": 3
+    },
+    "incident_date": "2026-02-04",
+    "claim_submission_date": "2026-02-07",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 51.64
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1460.71
+      }
+    ],
+    "total_claimed_amount": 3351.52,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10004",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH472528",
+      "name": "Sarah Hernandez",
+      "age": 65,
+      "gender": "F",
+      "policy_type": "Bronze",
+      "coverage_limit": 50000,
+      "policy_start_date": "2021-09-09",
+      "prior_claims_count": 5
+    },
+    "incident_date": "2026-02-01",
+    "claim_submission_date": "2026-02-05",
+    "diagnosis_code": "K80.20",
+    "diagnosis_name": "Gallstone",
+    "severity": "moderate",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1415.88
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2412.14
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 26341.57
+      }
+    ],
+    "total_claimed_amount": 16374.76,
+    "medical_notes": "Patient presented with gallstone. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10051",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH970813",
+      "name": "Michael Jones",
+      "age": 52,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 250000,
+      "policy_start_date": "2024-06-17",
+      "prior_claims_count": 3
+    },
+    "incident_date": "2026-02-03",
+    "claim_submission_date": "2026-02-04",
+    "diagnosis_code": "I21.9",
+    "diagnosis_name": "Acute Myocardial Infarction",
+    "severity": "severe",
+    "provider": {
+      "id": "P003",
+      "name": "Rapid Treatment Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 732.09
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 19300.15
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2080.59
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 5337.59
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 119.21
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 51535.18
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 60381.4
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 6024.79
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 12505.74
+      }
+    ],
+    "total_claimed_amount": 170559.49,
+    "medical_notes": "Patient claims acute myocardial infarction. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Cost significantly exceeds typical range for diagnosis",
+      "Multiple expensive procedures not typically required",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10011",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH201639",
+      "name": "William Miller",
+      "age": 30,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 500000,
+      "policy_start_date": "2022-06-27",
+      "prior_claims_count": 5
+    },
+    "incident_date": "2026-01-17",
+    "claim_submission_date": "2026-01-18",
+    "diagnosis_code": "J18.9",
+    "diagnosis_name": "Pneumonia",
+    "severity": "moderate",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 53.62
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 284.92
+      }
+    ],
+    "total_claimed_amount": 8491.06,
+    "medical_notes": "Patient presented with pneumonia. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10060",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH904624",
+      "name": "Michael Wilson",
+      "age": 45,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 250000,
+      "policy_start_date": "2024-06-07",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-02-02",
+    "claim_submission_date": "2026-02-03",
+    "diagnosis_code": "N18.3",
+    "diagnosis_name": "Chronic Kidney Disease",
+    "severity": "severe",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 2893.93
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 6665.48
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 53503.54
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 536.85
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 571.51
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 29594.4
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 83.59
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 122.38
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2352.12
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 656.88
+      }
+    ],
+    "total_claimed_amount": 67344.46,
+    "medical_notes": "Patient claims chronic kidney disease. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Cost significantly exceeds typical range for diagnosis",
+      "Multiple expensive procedures not typically required",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10002",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH331148",
+      "name": "Maria Martinez",
+      "age": 71,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 100000,
+      "policy_start_date": "2021-03-11",
+      "prior_claims_count": 3
+    },
+    "incident_date": "2026-01-13",
+    "claim_submission_date": "2026-01-16",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1283.4
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1224.89
+      }
+    ],
+    "total_claimed_amount": 2155.48,
+    "medical_notes": "Patient presented with low back pain. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10025",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH790855",
+      "name": "Jane Jones",
+      "age": 39,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 100000,
+      "policy_start_date": "2021-05-02",
+      "prior_claims_count": 2
+    },
+    "incident_date": "2026-02-05",
+    "claim_submission_date": "2026-02-07",
+    "diagnosis_code": "K80.20",
+    "diagnosis_name": "Gallstone",
+    "severity": "moderate",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 26930.68
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 12181.61
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 52.18
+      }
+    ],
+    "total_claimed_amount": 12884.12,
+    "medical_notes": "Patient presented with gallstone. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10028",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH245095",
+      "name": "Michael Brown",
+      "age": 28,
+      "gender": "F",
+      "policy_type": "Bronze",
+      "coverage_limit": 100000,
+      "policy_start_date": "2021-02-22",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-01-20",
+    "claim_submission_date": "2026-01-24",
+    "diagnosis_code": "J18.9",
+    "diagnosis_name": "Pneumonia",
+    "severity": "moderate",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1264.75
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 8713.7
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 271.17
+      }
+    ],
+    "total_claimed_amount": 7704.32,
+    "medical_notes": "Patient presented with pneumonia. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10063",
+    "claim_type": "EDGE_CASE",
+    "policyholder": {
+      "policyholder_id": "PH585188",
+      "name": "Lisa Rodriguez",
+      "age": 67,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 100000,
+      "policy_start_date": "2023-04-21",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-01-19",
+    "claim_submission_date": "2026-01-22",
+    "diagnosis_code": "C50.919",
+    "diagnosis_name": "Breast Cancer",
+    "severity": "severe",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2512.03
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1226.35
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 24319.49
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1300.3
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 11729.8
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2637.23
+      }
+    ],
+    "total_claimed_amount": 151203.2,
+    "medical_notes": "Patient presented with breast cancer. Specialized equipment/procedures required for rare presentation. Treatment aligned with current medical guidelines.",
+    "fraud_indicators": [
+      "Cost above typical range"
+    ],
+    "complexity_factors": [
+      "Rare complication requiring extended treatment",
+      "Co-morbid conditions necessitating specialized care",
+      "Emergency surgery required - higher facility costs",
+      "Extended ICU stay due to critical condition",
+      "Specialized equipment/procedures required for rare presentation"
+    ],
+    "expected_outcome": "APPROVE_WITH_REVIEW"
+  },
+  {
+    "claim_id": "CLM10049",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH823846",
+      "name": "David Davis",
+      "age": 72,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 500000,
+      "policy_start_date": "2022-05-25",
+      "prior_claims_count": 13
+    },
+    "incident_date": "2026-02-04",
+    "claim_submission_date": "2026-02-05",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 5611.67
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 38726.11
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 3159.61
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 6988.55
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 60103.88
+      }
+    ],
+    "total_claimed_amount": 4755.92,
+    "medical_notes": "Patient claims low back pain. Extensive treatment performed.",
+    "fraud_indicators": [
+      "High frequency of claims in short time period",
+      "Pattern of similar claims from same provider",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10068",
+    "claim_type": "EDGE_CASE",
+    "policyholder": {
+      "policyholder_id": "PH956375",
+      "name": "Maria Garcia",
+      "age": 46,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 50000,
+      "policy_start_date": "2022-11-19",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-01-31",
+    "claim_submission_date": "2026-02-07",
+    "diagnosis_code": "N18.3",
+    "diagnosis_name": "Chronic Kidney Disease",
+    "severity": "severe",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1113.02
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2393.44
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 8527.62
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 25980.36
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 11133.1
+      }
+    ],
+    "total_claimed_amount": 37327.08,
+    "medical_notes": "Patient presented with chronic kidney disease. Extended ICU stay due to critical condition. Treatment aligned with current medical guidelines.",
+    "fraud_indicators": [
+      "Cost above typical range"
+    ],
+    "complexity_factors": [
+      "Rare complication requiring extended treatment",
+      "Co-morbid conditions necessitating specialized care",
+      "Emergency surgery required - higher facility costs",
+      "Extended ICU stay due to critical condition",
+      "Specialized equipment/procedures required for rare presentation"
+    ],
+    "expected_outcome": "APPROVE_WITH_REVIEW"
+  },
+  {
+    "claim_id": "CLM10062",
+    "claim_type": "EDGE_CASE",
+    "policyholder": {
+      "policyholder_id": "PH281926",
+      "name": "Lisa Williams",
+      "age": 43,
+      "gender": "M",
+      "policy_type": "Gold",
+      "coverage_limit": 500000,
+      "policy_start_date": "2022-07-03",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-01-23",
+    "claim_submission_date": "2026-01-27",
+    "diagnosis_code": "C50.919",
+    "diagnosis_name": "Breast Cancer",
+    "severity": "severe",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1188.46
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 45.57
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 319.9
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1373.02
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1287.42
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3748.71
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 306.9
+      }
+    ],
+    "total_claimed_amount": 147230.49,
+    "medical_notes": "Patient presented with breast cancer. Specialized equipment/procedures required for rare presentation. Treatment aligned with current medical guidelines.",
+    "fraud_indicators": [
+      "Cost above typical range"
+    ],
+    "complexity_factors": [
+      "Rare complication requiring extended treatment",
+      "Co-morbid conditions necessitating specialized care",
+      "Emergency surgery required - higher facility costs",
+      "Extended ICU stay due to critical condition",
+      "Specialized equipment/procedures required for rare presentation"
+    ],
+    "expected_outcome": "APPROVE_WITH_REVIEW"
+  },
+  {
+    "claim_id": "CLM10017",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH741390",
+      "name": "Richard Hernandez",
+      "age": 56,
+      "gender": "M",
+      "policy_type": "Bronze",
+      "coverage_limit": 250000,
+      "policy_start_date": "2021-05-21",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-02-03",
+    "claim_submission_date": "2026-02-09",
+    "diagnosis_code": "K80.20",
+    "diagnosis_name": "Gallstone",
+    "severity": "moderate",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 155.62
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1605.87
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1501.62
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 285.07
+      }
+    ],
+    "total_claimed_amount": 12692.57,
+    "medical_notes": "Patient presented with gallstone. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10055",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH573962",
+      "name": "James Brown",
+      "age": 31,
+      "gender": "M",
+      "policy_type": "Bronze",
+      "coverage_limit": 250000,
+      "policy_start_date": "2022-07-15",
+      "prior_claims_count": 5
+    },
+    "incident_date": "2026-02-03",
+    "claim_submission_date": "2026-02-04",
+    "diagnosis_code": "J18.9",
+    "diagnosis_name": "Pneumonia",
+    "severity": "moderate",
+    "provider": {
+      "id": "P003",
+      "name": "Rapid Treatment Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 282.14
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 25168.7
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 89.74
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 16044.41
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 579.06
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 343.96
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 242.16
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 53867.82
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 8321.97
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 24616.02
+      }
+    ],
+    "total_claimed_amount": 19144.87,
+    "medical_notes": "Patient claims pneumonia. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Treatment intensity not aligned with diagnosis severity",
+      "Excessive diagnostic procedures",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10035",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH572700",
+      "name": "Sarah Wilson",
+      "age": 53,
+      "gender": "F",
+      "policy_type": "Bronze",
+      "coverage_limit": 500000,
+      "policy_start_date": "2023-03-22",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-01-31",
+    "claim_submission_date": "2026-02-03",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 286.58
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 7216.24
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 13075.35
+      }
+    ],
+    "total_claimed_amount": 2618.21,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10026",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH618392",
+      "name": "Robert Brown",
+      "age": 67,
+      "gender": "M",
+      "policy_type": "Bronze",
+      "coverage_limit": 50000,
+      "policy_start_date": "2020-11-23",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-01-15",
+    "claim_submission_date": "2026-01-20",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1189.55
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1590.42
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 8268.12
+      }
+    ],
+    "total_claimed_amount": 2611.06,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10033",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH179688",
+      "name": "Lisa Lopez",
+      "age": 43,
+      "gender": "M",
+      "policy_type": "Gold",
+      "coverage_limit": 250000,
+      "policy_start_date": "2021-04-08",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-01-26",
+    "claim_submission_date": "2026-01-31",
+    "diagnosis_code": "J18.9",
+    "diagnosis_name": "Pneumonia",
+    "severity": "moderate",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 22563.26
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1180.81
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 24951.01
+      }
+    ],
+    "total_claimed_amount": 8904.43,
+    "medical_notes": "Patient presented with pneumonia. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10020",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH348237",
+      "name": "Patricia Williams",
+      "age": 37,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 50000,
+      "policy_start_date": "2024-02-06",
+      "prior_claims_count": 5
+    },
+    "incident_date": "2026-01-10",
+    "claim_submission_date": "2026-01-16",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1382.43
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 12893.2
+      }
+    ],
+    "total_claimed_amount": 2802.24,
+    "medical_notes": "Patient presented with low back pain. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10021",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH333238",
+      "name": "Sarah Davis",
+      "age": 78,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 100000,
+      "policy_start_date": "2023-11-09",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-01-10",
+    "claim_submission_date": "2026-01-11",
+    "diagnosis_code": "K80.20",
+    "diagnosis_name": "Gallstone",
+    "severity": "moderate",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 320.62
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3381.8
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 22638.0
+      }
+    ],
+    "total_claimed_amount": 13969.57,
+    "medical_notes": "Patient presented with gallstone. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10058",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH386544",
+      "name": "Jennifer Wilson",
+      "age": 41,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 250000,
+      "policy_start_date": "2025-01-26",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-02-06",
+    "claim_submission_date": "2026-02-07",
+    "diagnosis_code": "S72.001A",
+    "diagnosis_name": "Femur Fracture",
+    "severity": "severe",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 26659.15
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 3415.25
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 103.38
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 475.49
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 465.78
+      }
+    ],
+    "total_claimed_amount": 94948.42,
+    "medical_notes": "Patient claims femur fracture. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Cost significantly exceeds typical range for diagnosis",
+      "Multiple expensive procedures not typically required",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10056",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH550961",
+      "name": "Maria Brown",
+      "age": 45,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 500000,
+      "policy_start_date": "2022-11-14",
+      "prior_claims_count": 3
+    },
+    "incident_date": "2026-02-04",
+    "claim_submission_date": "2026-02-05",
+    "diagnosis_code": "I21.9",
+    "diagnosis_name": "Acute Myocardial Infarction",
+    "severity": "severe",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 4681.62
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 40752.89
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 78.0
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2947.95
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2474.02
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 108.5
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 22929.7
+      }
+    ],
+    "total_claimed_amount": 90844.49,
+    "medical_notes": "Patient claims acute myocardial infarction. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Treatment intensity not aligned with diagnosis severity",
+      "Excessive diagnostic procedures",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10047",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH993140",
+      "name": "Emily Hernandez",
+      "age": 28,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 500000,
+      "policy_start_date": "2022-01-26",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-02-04",
+    "claim_submission_date": "2026-02-05",
+    "diagnosis_code": "M17.11",
+    "diagnosis_name": "Knee Osteoarthritis",
+    "severity": "moderate",
+    "provider": {
+      "id": "P003",
+      "name": "Rapid Treatment Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 26328.01
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 120.17
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1855.19
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 57403.59
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 14346.94
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 93.74
+      }
+    ],
+    "total_claimed_amount": 62041.35,
+    "medical_notes": "Patient claims knee osteoarthritis. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Cost significantly exceeds typical range for diagnosis",
+      "Multiple expensive procedures not typically required",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10013",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH274389",
+      "name": "Robert Davis",
+      "age": 48,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 500000,
+      "policy_start_date": "2024-10-10",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-01-29",
+    "claim_submission_date": "2026-02-05",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1585.01
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 25809.36
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 11968.01
+      }
+    ],
+    "total_claimed_amount": 3582.37,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10019",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH710805",
+      "name": "James Williams",
+      "age": 65,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 50000,
+      "policy_start_date": "2023-05-18",
+      "prior_claims_count": 2
+    },
+    "incident_date": "2026-01-30",
+    "claim_submission_date": "2026-02-05",
+    "diagnosis_code": "J18.9",
+    "diagnosis_name": "Pneumonia",
+    "severity": "moderate",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 322.48
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3831.69
+      }
+    ],
+    "total_claimed_amount": 7072.24,
+    "medical_notes": "Patient presented with pneumonia. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10003",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH865179",
+      "name": "Maria Rodriguez",
+      "age": 23,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 50000,
+      "policy_start_date": "2022-01-04",
+      "prior_claims_count": 2
+    },
+    "incident_date": "2026-02-04",
+    "claim_submission_date": "2026-02-05",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1380.3
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1433.39
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1232.56
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1459.45
+      }
+    ],
+    "total_claimed_amount": 2192.29,
+    "medical_notes": "Patient presented with low back pain. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10057",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH856086",
+      "name": "John Jones",
+      "age": 72,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 50000,
+      "policy_start_date": "2021-11-12",
+      "prior_claims_count": 15
+    },
+    "incident_date": "2026-02-06",
+    "claim_submission_date": "2026-02-07",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P003",
+      "name": "Rapid Treatment Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 18547.41
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 634.07
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 25712.39
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 5341.89
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 19432.67
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 18635.69
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 4418.62
+      }
+    ],
+    "total_claimed_amount": 4142.43,
+    "medical_notes": "Patient claims low back pain. Extensive treatment performed.",
+    "fraud_indicators": [
+      "High frequency of claims in short time period",
+      "Pattern of similar claims from same provider",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10065",
+    "claim_type": "EDGE_CASE",
+    "policyholder": {
+      "policyholder_id": "PH774751",
+      "name": "Richard Garcia",
+      "age": 66,
+      "gender": "M",
+      "policy_type": "Bronze",
+      "coverage_limit": 50000,
+      "policy_start_date": "2021-06-25",
+      "prior_claims_count": 5
+    },
+    "incident_date": "2026-01-24",
+    "claim_submission_date": "2026-01-28",
+    "diagnosis_code": "C50.919",
+    "diagnosis_name": "Breast Cancer",
+    "severity": "severe",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 287.75
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 12691.49
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 150.23
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2519.89
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 157.16
+      }
+    ],
+    "total_claimed_amount": 111274.8,
+    "medical_notes": "Patient presented with breast cancer. Specialized equipment/procedures required for rare presentation. Treatment aligned with current medical guidelines.",
+    "fraud_indicators": [
+      "Cost above typical range"
+    ],
+    "complexity_factors": [
+      "Rare complication requiring extended treatment",
+      "Co-morbid conditions necessitating specialized care",
+      "Emergency surgery required - higher facility costs",
+      "Extended ICU stay due to critical condition",
+      "Specialized equipment/procedures required for rare presentation"
+    ],
+    "expected_outcome": "APPROVE_WITH_REVIEW"
+  },
+  {
+    "claim_id": "CLM10005",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH340174",
+      "name": "Patricia Smith",
+      "age": 25,
+      "gender": "F",
+      "policy_type": "Silver",
+      "coverage_limit": 250000,
+      "policy_start_date": "2024-09-25",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-01-25",
+    "claim_submission_date": "2026-01-31",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 151.17
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 157.41
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 11828.24
+      }
+    ],
+    "total_claimed_amount": 2655.44,
+    "medical_notes": "Patient presented with low back pain. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10009",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH234628",
+      "name": "William Davis",
+      "age": 34,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 500000,
+      "policy_start_date": "2023-12-02",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-01-16",
+    "claim_submission_date": "2026-01-22",
+    "diagnosis_code": "K80.20",
+    "diagnosis_name": "Gallstone",
+    "severity": "moderate",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 47.25
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3386.66
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 152.65
+      }
+    ],
+    "total_claimed_amount": 13870.3,
+    "medical_notes": "Patient presented with gallstone. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10052",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH835132",
+      "name": "David Hernandez",
+      "age": 77,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 100000,
+      "policy_start_date": "2024-11-07",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-02-02",
+    "claim_submission_date": "2026-02-03",
+    "diagnosis_code": "K80.20",
+    "diagnosis_name": "Gallstone",
+    "severity": "moderate",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 667.98
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 715.62
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 5387.3
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 58342.33
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 7404.78
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 8536.69
+      }
+    ],
+    "total_claimed_amount": 39686.82,
+    "medical_notes": "Patient claims gallstone. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Cost significantly exceeds typical range for diagnosis",
+      "Multiple expensive procedures not typically required",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10061",
+    "claim_type": "EDGE_CASE",
+    "policyholder": {
+      "policyholder_id": "PH192410",
+      "name": "Robert Johnson",
+      "age": 64,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 500000,
+      "policy_start_date": "2022-03-02",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-01-26",
+    "claim_submission_date": "2026-02-02",
+    "diagnosis_code": "C50.919",
+    "diagnosis_name": "Breast Cancer",
+    "severity": "severe",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1164.26
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 27291.12
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3601.81
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 139.43
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 11046.73
+      }
+    ],
+    "total_claimed_amount": 142196.71,
+    "medical_notes": "Patient presented with breast cancer. Emergency surgery required - higher facility costs. Treatment aligned with current medical guidelines.",
+    "fraud_indicators": [
+      "Cost above typical range"
+    ],
+    "complexity_factors": [
+      "Rare complication requiring extended treatment",
+      "Co-morbid conditions necessitating specialized care",
+      "Emergency surgery required - higher facility costs",
+      "Extended ICU stay due to critical condition",
+      "Specialized equipment/procedures required for rare presentation"
+    ],
+    "expected_outcome": "APPROVE_WITH_REVIEW"
+  },
+  {
+    "claim_id": "CLM10041",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH899787",
+      "name": "Sarah Hernandez",
+      "age": 30,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 50000,
+      "policy_start_date": "2024-03-23",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-02-03",
+    "claim_submission_date": "2026-02-04",
+    "diagnosis_code": "S72.001A",
+    "diagnosis_name": "Femur Fracture",
+    "severity": "severe",
+    "provider": {
+      "id": "P003",
+      "name": "Rapid Treatment Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 7564.14
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 3650.5
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 2887.71
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 24534.75
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 25771.62
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 120.42
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 58165.78
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 3928.52
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 19991.07
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 45190.3
+      }
+    ],
+    "total_claimed_amount": 87640.48,
+    "medical_notes": "Patient claims femur fracture. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Cost significantly exceeds typical range for diagnosis",
+      "Multiple expensive procedures not typically required",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10070",
+    "claim_type": "EDGE_CASE",
+    "policyholder": {
+      "policyholder_id": "PH853448",
+      "name": "Michael Jones",
+      "age": 48,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 250000,
+      "policy_start_date": "2023-10-04",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-01-31",
+    "claim_submission_date": "2026-02-10",
+    "diagnosis_code": "C50.919",
+    "diagnosis_name": "Breast Cancer",
+    "severity": "severe",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1192.83
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3594.97
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3836.73
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2376.83
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3161.37
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 317.31
+      }
+    ],
+    "total_claimed_amount": 138735.78,
+    "medical_notes": "Patient presented with breast cancer. Emergency surgery required - higher facility costs. Treatment aligned with current medical guidelines.",
+    "fraud_indicators": [
+      "Cost above typical range"
+    ],
+    "complexity_factors": [
+      "Rare complication requiring extended treatment",
+      "Co-morbid conditions necessitating specialized care",
+      "Emergency surgery required - higher facility costs",
+      "Extended ICU stay due to critical condition",
+      "Specialized equipment/procedures required for rare presentation"
+    ],
+    "expected_outcome": "APPROVE_WITH_REVIEW"
+  },
+  {
+    "claim_id": "CLM10045",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH678043",
+      "name": "Michael Miller",
+      "age": 76,
+      "gender": "M",
+      "policy_type": "Bronze",
+      "coverage_limit": 100000,
+      "policy_start_date": "2024-09-18",
+      "prior_claims_count": 12
+    },
+    "incident_date": "2026-02-04",
+    "claim_submission_date": "2026-02-05",
+    "diagnosis_code": "J45.909",
+    "diagnosis_name": "Asthma",
+    "severity": "mild",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 2732.67
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 5910.28
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 5493.75
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 103.59
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 260.03
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 7964.41
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 463.09
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 7856.47
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 7718.3
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 115.57
+      }
+    ],
+    "total_claimed_amount": 3111.58,
+    "medical_notes": "Patient claims asthma. Extensive treatment performed.",
+    "fraud_indicators": [
+      "High frequency of claims in short time period",
+      "Pattern of similar claims from same provider",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10030",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH233827",
+      "name": "Lisa Rodriguez",
+      "age": 77,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 50000,
+      "policy_start_date": "2024-08-20",
+      "prior_claims_count": 5
+    },
+    "incident_date": "2026-02-01",
+    "claim_submission_date": "2026-02-02",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 315.67
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1463.74
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 315.12
+      }
+    ],
+    "total_claimed_amount": 3440.22,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10064",
+    "claim_type": "EDGE_CASE",
+    "policyholder": {
+      "policyholder_id": "PH927564",
+      "name": "William Hernandez",
+      "age": 24,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 250000,
+      "policy_start_date": "2024-07-29",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-01-29",
+    "claim_submission_date": "2026-02-05",
+    "diagnosis_code": "C50.919",
+    "diagnosis_name": "Breast Cancer",
+    "severity": "severe",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3638.94
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 146.76
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 305.7
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2719.0
+      }
+    ],
+    "total_claimed_amount": 121209.82,
+    "medical_notes": "Patient presented with breast cancer. Emergency surgery required - higher facility costs. Treatment aligned with current medical guidelines.",
+    "fraud_indicators": [
+      "Cost above typical range"
+    ],
+    "complexity_factors": [
+      "Rare complication requiring extended treatment",
+      "Co-morbid conditions necessitating specialized care",
+      "Emergency surgery required - higher facility costs",
+      "Extended ICU stay due to critical condition",
+      "Specialized equipment/procedures required for rare presentation"
+    ],
+    "expected_outcome": "APPROVE_WITH_REVIEW"
+  },
+  {
+    "claim_id": "CLM10050",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH913423",
+      "name": "Richard Brown",
+      "age": 54,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 100000,
+      "policy_start_date": "2021-08-16",
+      "prior_claims_count": 8
+    },
+    "incident_date": "2026-02-03",
+    "claim_submission_date": "2026-02-04",
+    "diagnosis_code": "S72.001A",
+    "diagnosis_name": "Femur Fracture",
+    "severity": "severe",
+    "provider": {
+      "id": "P003",
+      "name": "Rapid Treatment Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 5864.74
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 19585.92
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2447.29
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 3707.23
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 24370.23
+      }
+    ],
+    "total_claimed_amount": 60068.86,
+    "medical_notes": "Patient claims femur fracture. Extensive treatment performed.",
+    "fraud_indicators": [
+      "High frequency of claims in short time period",
+      "Pattern of similar claims from same provider",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10054",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH714867",
+      "name": "Sarah Brown",
+      "age": 44,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 50000,
+      "policy_start_date": "2023-07-21",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-02-06",
+    "claim_submission_date": "2026-02-07",
+    "diagnosis_code": "S72.001A",
+    "diagnosis_name": "Femur Fracture",
+    "severity": "severe",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2690.06
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 24313.03
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 3368.5
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 592.87
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 341.7
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2415.89
+      }
+    ],
+    "total_claimed_amount": 93271.13,
+    "medical_notes": "Patient claims femur fracture. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Cost significantly exceeds typical range for diagnosis",
+      "Multiple expensive procedures not typically required",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10012",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH662336",
+      "name": "Maria Williams",
+      "age": 42,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 250000,
+      "policy_start_date": "2022-07-06",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-01-10",
+    "claim_submission_date": "2026-01-15",
+    "diagnosis_code": "J18.9",
+    "diagnosis_name": "Pneumonia",
+    "severity": "moderate",
+    "provider": {
+      "id": "P002",
+      "name": "QuickCare Clinic",
+      "type": "Clinic",
+      "reputation": "good"
+    },
+    "procedures": [
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1280.65
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2734.5
+      }
+    ],
+    "total_claimed_amount": 8985.67,
+    "medical_notes": "Patient presented with pneumonia. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10042",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH560485",
+      "name": "Jane Davis",
+      "age": 54,
+      "gender": "F",
+      "policy_type": "Bronze",
+      "coverage_limit": 500000,
+      "policy_start_date": "2023-07-31",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-02-06",
+    "claim_submission_date": "2026-02-07",
+    "diagnosis_code": "C50.919",
+    "diagnosis_name": "Breast Cancer",
+    "severity": "severe",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 27177.12
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 58035.53
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2491.5
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 3394.66
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 41879.77
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 16151.71
+      },
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 6797.8
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2133.79
+      }
+    ],
+    "total_claimed_amount": 157786.29,
+    "medical_notes": "Patient claims breast cancer. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Treatment intensity not aligned with diagnosis severity",
+      "Excessive diagnostic procedures",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10053",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH134305",
+      "name": "Jennifer Garcia",
+      "age": 53,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 500000,
+      "policy_start_date": "2023-10-13",
+      "prior_claims_count": 13
+    },
+    "incident_date": "2026-02-04",
+    "claim_submission_date": "2026-02-05",
+    "diagnosis_code": "I21.9",
+    "diagnosis_name": "Acute Myocardial Infarction",
+    "severity": "severe",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 6177.73
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 3876.45
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 14668.07
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2986.59
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 3430.47
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 42630.14
+      }
+    ],
+    "total_claimed_amount": 69407.33,
+    "medical_notes": "Patient claims acute myocardial infarction. Extensive treatment performed.",
+    "fraud_indicators": [
+      "High frequency of claims in short time period",
+      "Pattern of similar claims from same provider",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10044",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH479353",
+      "name": "Lisa Wilson",
+      "age": 84,
+      "gender": "F",
+      "policy_type": "Bronze",
+      "coverage_limit": 500000,
+      "policy_start_date": "2020-11-04",
+      "prior_claims_count": 10
+    },
+    "incident_date": "2026-02-03",
+    "claim_submission_date": "2026-02-04",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 80.67
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2936.47
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 53692.74
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 19847.65
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 29191.84
+      },
+      {
+        "code": "93000",
+        "name": "Electrocardiogram",
+        "cost": 537.56
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2646.49
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 95.77
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 2973.75
+      },
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 15777.76
+      }
+    ],
+    "total_claimed_amount": 5373.43,
+    "medical_notes": "Patient claims low back pain. Extensive treatment performed.",
+    "fraud_indicators": [
+      "High frequency of claims in short time period",
+      "Pattern of similar claims from same provider",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10046",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH795928",
+      "name": "Richard Hernandez",
+      "age": 67,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 50000,
+      "policy_start_date": "2024-05-25",
+      "prior_claims_count": 4
+    },
+    "incident_date": "2026-02-03",
+    "claim_submission_date": "2026-02-04",
+    "diagnosis_code": "M17.11",
+    "diagnosis_name": "Knee Osteoarthritis",
+    "severity": "moderate",
+    "provider": {
+      "id": "P006",
+      "name": "FastMed Injury Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 5790.26
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 98.47
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 29630.44
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 91.93
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 54817.61
+      }
+    ],
+    "total_claimed_amount": 68603.14,
+    "medical_notes": "Patient claims knee osteoarthritis. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Cost significantly exceeds typical range for diagnosis",
+      "Multiple expensive procedures not typically required",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10006",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH479580",
+      "name": "Sarah Williams",
+      "age": 69,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 50000,
+      "policy_start_date": "2024-06-28",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-02-04",
+    "claim_submission_date": "2026-02-08",
+    "diagnosis_code": "K80.20",
+    "diagnosis_name": "Gallstone",
+    "severity": "moderate",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3537.26
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 54.42
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 1554.09
+      }
+    ],
+    "total_claimed_amount": 14532.96,
+    "medical_notes": "Patient presented with gallstone. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10018",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH196781",
+      "name": "William Miller",
+      "age": 24,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 50000,
+      "policy_start_date": "2023-03-27",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-01-20",
+    "claim_submission_date": "2026-01-26",
+    "diagnosis_code": "M54.5",
+    "diagnosis_name": "Low Back Pain",
+    "severity": "mild",
+    "provider": {
+      "id": "P001",
+      "name": "City General Hospital",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99223",
+        "name": "Hospital Admission",
+        "cost": 3633.71
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 139.47
+      },
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2268.01
+      }
+    ],
+    "total_claimed_amount": 2741.23,
+    "medical_notes": "Patient presented with low back pain. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10043",
+    "claim_type": "FRAUD",
+    "policyholder": {
+      "policyholder_id": "PH765620",
+      "name": "Patricia Davis",
+      "age": 73,
+      "gender": "M",
+      "policy_type": "Silver",
+      "coverage_limit": 250000,
+      "policy_start_date": "2022-10-25",
+      "prior_claims_count": 2
+    },
+    "incident_date": "2026-02-03",
+    "claim_submission_date": "2026-02-04",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P003",
+      "name": "Rapid Treatment Center",
+      "type": "Clinic",
+      "reputation": "suspicious"
+    },
+    "procedures": [
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 56813.7
+      },
+      {
+        "code": "36415",
+        "name": "Blood Draw",
+        "cost": 118.25
+      },
+      {
+        "code": "47562",
+        "name": "Laparoscopic Cholecystectomy",
+        "cost": 27899.13
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1801.38
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 2843.24
+      },
+      {
+        "code": "70450",
+        "name": "CT Scan - Head",
+        "cost": 2942.96
+      },
+      {
+        "code": "99213",
+        "name": "Office Visit - Moderate",
+        "cost": 233.13
+      }
+    ],
+    "total_claimed_amount": 8984.12,
+    "medical_notes": "Patient claims type 2 diabetes. Extensive treatment performed.",
+    "fraud_indicators": [
+      "Cost significantly exceeds typical range for diagnosis",
+      "Multiple expensive procedures not typically required",
+      "Unusually quick claim submission"
+    ],
+    "expected_outcome": "DENY"
+  },
+  {
+    "claim_id": "CLM10014",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH411120",
+      "name": "Sarah Smith",
+      "age": 42,
+      "gender": "M",
+      "policy_type": "Bronze",
+      "coverage_limit": 250000,
+      "policy_start_date": "2024-10-13",
+      "prior_claims_count": 0
+    },
+    "incident_date": "2026-01-21",
+    "claim_submission_date": "2026-01-23",
+    "diagnosis_code": "E11.9",
+    "diagnosis_name": "Type 2 Diabetes",
+    "severity": "mild",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "99291",
+        "name": "Critical Care - First Hour",
+        "cost": 2342.91
+      },
+      {
+        "code": "99285",
+        "name": "Emergency Room Visit - High Complexity",
+        "cost": 1222.81
+      }
+    ],
+    "total_claimed_amount": 3503.26,
+    "medical_notes": "Patient presented with type 2 diabetes. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  },
+  {
+    "claim_id": "CLM10031",
+    "claim_type": "CLEAN",
+    "policyholder": {
+      "policyholder_id": "PH364525",
+      "name": "Patricia Johnson",
+      "age": 71,
+      "gender": "F",
+      "policy_type": "Gold",
+      "coverage_limit": 50000,
+      "policy_start_date": "2023-02-22",
+      "prior_claims_count": 1
+    },
+    "incident_date": "2026-02-06",
+    "claim_submission_date": "2026-02-08",
+    "diagnosis_code": "J18.9",
+    "diagnosis_name": "Pneumonia",
+    "severity": "moderate",
+    "provider": {
+      "id": "P004",
+      "name": "University Medical Center",
+      "type": "Hospital",
+      "reputation": "excellent"
+    },
+    "procedures": [
+      {
+        "code": "19120",
+        "name": "Breast Excision",
+        "cost": 7581.67
+      },
+      {
+        "code": "27447",
+        "name": "Knee Replacement Surgery",
+        "cost": 24867.81
+      }
+    ],
+    "total_claimed_amount": 6528.83,
+    "medical_notes": "Patient presented with pneumonia. Treatment provided as per standard protocol.",
+    "fraud_indicators": [],
+    "expected_outcome": "APPROVE"
+  }
+]

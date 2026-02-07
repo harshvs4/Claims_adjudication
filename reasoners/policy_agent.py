@@ -52,7 +52,7 @@ Provide detailed reasoning for coverage determination.
 """
     
     result = await app.ai(
-        prompt=prompt,
+        prompt,
         schema=PolicyAssessment
     )
     
@@ -61,10 +61,10 @@ Provide detailed reasoning for coverage determination.
     # Store in shared memory
     await app.memory.set(
         key=f"claim:{claim.claim_id}:policy_assessment",
-        value=result.model_dump()
+        data=result.model_dump()
     )
     
-    await app.note(
+    app.note(
         f"📋 Policy check complete: "
         f"{'COVERED' if result.covered_under_policy else 'NOT COVERED'}"
     )

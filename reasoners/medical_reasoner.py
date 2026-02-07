@@ -49,7 +49,7 @@ Be thorough but fair - legitimate medical needs should be supported.
 """
     
     result = await app.ai(
-        prompt=prompt,
+        prompt,
         schema=MedicalAssessment
     )
     
@@ -58,10 +58,10 @@ Be thorough but fair - legitimate medical needs should be supported.
     # Store in shared memory
     await app.memory.set(
         key=f"claim:{claim.claim_id}:medical_assessment",
-        value=result.model_dump()
+        data=result.model_dump()
     )
     
-    await app.note(
+    app.note(
         f"✅ Medical assessment complete: "
         f"Necessary={result.is_medically_necessary}, "
         f"Confidence={result.confidence:.2f}"
