@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🏥 Claims Adjudication System
 
 Multi-agent health insurance claims adjudication using AgentField with memory and vector search.
