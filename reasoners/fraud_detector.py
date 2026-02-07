@@ -7,6 +7,14 @@ from models.claim import Claim
 from models.decision import FraudAssessment
 from skills.fraud_scoring import calculate_fraud_score
 from skills.data_extraction import get_claim_description
+from fastembed import TextEmbedding
+
+_embed_model = TextEmbedding("BAAI/bge-small-en-v1.5")
+
+
+def _embed(text: str) -> list:
+    """Generate embedding vector from text."""
+    return list(_embed_model.embed([text]))[0].tolist()
 
 
 async def detect_fraud_patterns(app: Agent, claim: Claim) -> FraudAssessment:
@@ -32,45 +40,44 @@ async def detect_fraud_patterns(app: Agent, claim: Claim) -> FraudAssessment:
     # Create semantic representation for vector search
     claim_description = get_claim_description(claim)
 
-    # Vector-based similar claim search (requires embedding model)
+    # Vector-based similar claim search using fastembed
     similar_claims = []
     fraud_pattern_count = 0
     similar_details = []
 
-    try:
-        await app.memory.set_vector(
-            key=claim.claim_id,
-            embedding=claim_description,
-            metadata={
-                "claim_id": claim.claim_id,
-                "diagnosis": claim.diagnosis_name,
-                "provider": claim.provider.name,
-                "provider_reputation": claim.provider.reputation,
-                "amount": claim.total_claimed_amount,
-                "fraud_score": indicators['fraud_score'],
-                "actual_type": getattr(claim, 'claim_type', 'UNKNOWN')
-            }
-        )
+    claim_embedding = _embed(claim_description)
 
-        similar_claims = await app.memory.similarity_search(
-            query_embedding=claim_description,
-            top_k=5
-        )
+    await app.memory.set_vector(
+        key=claim.claim_id,
+        embedding=claim_embedding,
+        metadata={
+            "claim_id": claim.claim_id,
+            "diagnosis": claim.diagnosis_name,
+            "provider": claim.provider.name,
+            "provider_reputation": claim.provider.reputation,
+            "amount": claim.total_claimed_amount,
+            "fraud_score": indicators['fraud_score'],
+            "actual_type": getattr(claim, 'claim_type', 'UNKNOWN')
+        }
+    )
 
-        if similar_claims:
-            for idx, similar in enumerate(similar_claims, 1):
-                metadata = similar.get('metadata', {})
-                is_fraud = metadata.get('actual_type') == 'FRAUD'
-                if is_fraud:
-                    fraud_pattern_count += 1
+    similar_claims = await app.memory.similarity_search(
+        query_embedding=claim_embedding,
+        top_k=5
+    )
 
-                similar_details.append(
-                    f"{idx}. {metadata.get('diagnosis', 'Unknown')} - "
-                    f"${metadata.get('amount', 0):,.0f} at {metadata.get('provider', 'Unknown')} "
-                    f"[{'FRAUD' if is_fraud else 'LEGITIMATE'}]"
-                )
-    except Exception:
-        app.note(f"⚠ Vector search unavailable, using deterministic + AI analysis only")
+    if similar_claims:
+        for idx, similar in enumerate(similar_claims, 1):
+            metadata = similar.get('metadata', {})
+            is_fraud = metadata.get('actual_type') == 'FRAUD'
+            if is_fraud:
+                fraud_pattern_count += 1
+
+            similar_details.append(
+                f"{idx}. {metadata.get('diagnosis', 'Unknown')} - "
+                f"${metadata.get('amount', 0):,.0f} at {metadata.get('provider', 'Unknown')} "
+                f"[{'FRAUD' if is_fraud else 'LEGITIMATE'}]"
+            )
     
     # AI fraud analysis
     prompt = f"""You are a fraud investigation specialist with expertise in healthcare fraud.
