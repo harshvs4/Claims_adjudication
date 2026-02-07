@@ -2,6 +2,8 @@
 
 A multi-agent health insurance claims adjudication system built on [AgentField](https://agentfield.ai). Five specialized AI agents collaborate through shared memory and vector similarity search to evaluate medical necessity, detect fraud, verify policy compliance, analyze costs, and deliver transparent, auditable decisions.
 
+**NEW:** 🎨 **Real-time Web UI** with AG-UI protocol integration - Watch the multi-agent workflow execute live in your browser!
+
 ## Architecture
 
 ```
@@ -64,13 +66,61 @@ claims-adjudication/
     └── helpers.py                     # Formatting utilities
 ```
 
-## Quick Start
+## 🎨 Web UI (AG-UI Integration)
+
+This system includes a **beautiful real-time web interface** built with AG-UI protocol for live workflow visualization.
+
+![AG-UI Demo](docs/agui-demo.png)
+
+### Features
+- 🔄 **Real-time WebSocket updates** - Watch agents work in real-time
+- 📊 **Visual workflow progress** - See each stage as it completes
+- 🎯 **Detailed assessment cards** - View all specialist agent results
+- ✅ **Final decision display** - Clear adjudication outcome with reasoning
+- 📱 **Responsive design** - Works on desktop, tablet, and mobile
+
+### Quick Start with UI
+
+**Option 1: Automated startup (recommended)**
+
+```bash
+./start_system.sh all
+```
+
+This single command starts all 4 components:
+1. AgentField server (port 8080)
+2. All 5 agent instances
+3. AG-UI adapter server (port 8000)
+4. Next.js frontend UI (port 3000)
+
+Then open [http://localhost:3000](http://localhost:3000) in your browser!
+
+**Option 2: Manual startup**
+
+```bash
+# Terminal 1: AgentField server
+agentfield server start
+
+# Terminal 2: All agents
+python launch_all_agents.py
+
+# Terminal 3: AG-UI adapter
+cd ag-ui-adapter && python server.py
+
+# Terminal 4: Frontend
+cd frontend && npm install && npm run dev
+```
+
+📖 **Full setup guide:** See [AG_UI_SETUP.md](AG_UI_SETUP.md) for detailed instructions.
+
+## Quick Start (API Only)
 
 ### Prerequisites
 
 - Python 3.10+
 - [AgentField CLI](https://agentfield.ai)
 - Anthropic API key
+- Node.js 18+ (for web UI)
 
 ### Setup
 
@@ -87,22 +137,27 @@ cd Claims_adjudication
 conda create -n agentfield python=3.10 -y
 conda activate agentfield
 
-# Install dependencies
-pip install agentfield fastembed python-dotenv pydantic
+# Install Python dependencies
+pip install agentfield fastembed python-dotenv pydantic httpx fastapi uvicorn
+
+# Install frontend dependencies (for UI)
+cd frontend && npm install && cd ..
 
 # Configure API key
 echo 'ANTHROPIC_API_KEY=your-key-here' > .env
 ```
 
-### Run
+### Run (Multi-Agent Mode)
 
 ```bash
 # Terminal 1: Start AgentField control plane
-af server
+agentfield server start
 
-# Terminal 2: Start the agent
-python main.py
+# Terminal 2: Start all agents
+python launch_all_agents.py
 ```
+
+Then use the API or web UI to process claims.
 
 ## API Endpoints
 
