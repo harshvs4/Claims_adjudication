@@ -1,0 +1,228 @@
+🔍 DEBUG: ResultCache initialized with max_size=5000, ttl=120.0
+🔍 DEBUG: DID system initialized
+🔍 DEBUG: Default port 8001 taken, using 8006
+ℹ️ Starting agent node 'claims-orchestrator' on port 8006
+ℹ️ Agent server running at http://0.0.0.0:8006
+ℹ️ Available endpoints:
+🔍 DEBUG: Endpoint registered: GET /health
+🔍 DEBUG: Endpoint registered: GET /reasoners
+🔍 DEBUG: Endpoint registered: GET /skills
+🔍 DEBUG: Endpoint registered: POST /shutdown
+🔍 DEBUG: Endpoint registered: GET /status
+🔍 DEBUG: Endpoint registered: GET /info
+🔍 DEBUG: Endpoint registered: GET /mcp/status
+🔍 DEBUG: Endpoint registered: POST /mcp/{alias}/start
+🔍 DEBUG: Endpoint registered: POST /mcp/{alias}/stop
+🔍 DEBUG: Endpoint registered: POST /mcp/{alias}/restart
+🔍 DEBUG: Endpoint registered: GET /health/mcp
+🔍 DEBUG: Endpoint registered: POST /mcp/servers/{alias}/restart
+🔍 DEBUG: Endpoint registered: GET /mcp/servers/{alias}/tools
+🔍 DEBUG: Endpoint registered: POST /reasoners/adjudicate_claim
+🔍 DEBUG: Fast lifecycle signal handler registered (SIGTERM only)
+🔍 DEBUG: Single-process mode
+⚠️ uvloop not available, using default asyncio loop
+🔍 DEBUG: Uvicorn configuration:
+🔍 DEBUG:   host: 0.0.0.0
+🔍 DEBUG:   port: 8006
+🔍 DEBUG:   reload: False
+🔍 DEBUG:   access_log: False
+🔍 DEBUG:   log_level: info
+🔍 DEBUG:   timeout_graceful_shutdown: 30
+🔍 DEBUG:   limit_concurrency: 1000
+🔍 DEBUG:   backlog: 2048
+INFO:     Started server process [13239]
+INFO:     Waiting for application startup.
+ℹ️ Starting connection manager
+🔍 DEBUG: Attempting connection to AgentField server
+🔍 DEBUG: Agent claims-orchestrator registered successfully
+🔍 DEBUG: Registering agent with DID system: claims-orchestrator
+🔍 DEBUG: Calling did_manager.register_agent() with 1 reasoners and 0 skills
+🔍 DEBUG: DID registration for agent: claims-orchestrator (1 reasoners, 0 skills)
+❌ DID registration request failed: 404 - {"error":"endpoint not found"}
+⚠️ Failed to register agent claims-orchestrator with DID system
+ℹ️ Connected to AgentField server
+ℹ️ Connected to AgentField server - full functionality available
+🔍 DEBUG: Enhanced heartbeat loop started (interval: 2s)
+ℹ️ Agent started with AgentField server connection
+ℹ️ Background MCP initialization started
+ℹ️ No MCP servers to initialize - agent ready
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8006 (Press CTRL+C to quit)
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+ℹ️ Background initialization complete - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '🎯 Orchestrator starting adjudication for CLM10001', 'tags': [], 'timestamp': 1770484729.2784278, 'agent_node_id': 'claims-orchestrator'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011849_cucjzr1g', 'X-Workflow-ID': 'run_20260208_011849_cucjzr1g', 'X-Parent-Execution-ID': 'exec_20260208_011849_mi85p4mr', 'X-Execution-ID': 'exec_202...
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '📞 Calling medical-reasoner agent...', 'tags': [], 'timestamp': 1770484729.2789629, 'agent_node_id': 'claims-orchestrator'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011849_cucjzr1g', 'X-Workflow-ID': 'run_20260208_011849_cucjzr1g', 'X-Parent-Execution-ID': 'exec_20260208_011849_mi85p4mr', 'X-Execution-ID': 'exec_202...
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"🎯 Orchestrator starting adjudication for CLM10001","tags":[],"timestamp":"2026-02-08T01:18:49.281559+08:00"},"message":"Note added success...
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"📞 Calling medical-reasoner agent...","tags":[],"timestamp":"2026-02-08T01:18:49.282015+08:00"},"message":"Note added successfully"}
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '✅ Medical: Necessary=False', 'tags': [], 'timestamp': 1770484737.2202299, 'agent_node_id': 'claims-orchestrator'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011849_cucjzr1g', 'X-Workflow-ID': 'run_20260208_011849_cucjzr1g', 'X-Parent-Execution-ID': 'exec_20260208_011849_mi85p4mr', 'X-Execution-ID': 'exec_202...
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '📞 Calling fraud-detector agent...', 'tags': [], 'timestamp': 1770484737.220584, 'agent_node_id': 'claims-orchestrator'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011849_cucjzr1g', 'X-Workflow-ID': 'run_20260208_011849_cucjzr1g', 'X-Parent-Execution-ID': 'exec_20260208_011849_mi85p4mr', 'X-Execution-ID': 'exec_202...
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"✅ Medical: Necessary=False","tags":[],"timestamp":"2026-02-08T01:18:57.22321+08:00"},"message":"Note added successfully"}
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"📞 Calling fraud-detector agent...","tags":[],"timestamp":"2026-02-08T01:18:57.223067+08:00"},"message":"Note added successfully"}
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '✅ Fraud: Risk=0.85', 'tags': [], 'timestamp': 1770484749.004502, 'agent_node_id': 'claims-orchestrator'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011849_cucjzr1g', 'X-Workflow-ID': 'run_20260208_011849_cucjzr1g', 'X-Parent-Execution-ID': 'exec_20260208_011849_mi85p4mr', 'X-Execution-ID': 'exec_202...
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '📞 Calling policy-checker agent...', 'tags': [], 'timestamp': 1770484749.0054898, 'agent_node_id': 'claims-orchestrator'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011849_cucjzr1g', 'X-Workflow-ID': 'run_20260208_011849_cucjzr1g', 'X-Parent-Execution-ID': 'exec_20260208_011849_mi85p4mr', 'X-Execution-ID': 'exec_202...
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"📞 Calling policy-checker agent...","tags":[],"timestamp":"2026-02-08T01:19:09.008448+08:00"},"message":"Note added successfully"}
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"✅ Fraud: Risk=0.85","tags":[],"timestamp":"2026-02-08T01:19:09.008584+08:00"},"message":"Note added successfully"}
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '✅ Policy: Covered=True', 'tags': [], 'timestamp': 1770484756.680522, 'agent_node_id': 'claims-orchestrator'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011849_cucjzr1g', 'X-Workflow-ID': 'run_20260208_011849_cucjzr1g', 'X-Parent-Execution-ID': 'exec_20260208_011849_mi85p4mr', 'X-Execution-ID': 'exec_202...
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '📞 Calling cost-analyzer agent...', 'tags': [], 'timestamp': 1770484756.6809332, 'agent_node_id': 'claims-orchestrator'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011849_cucjzr1g', 'X-Workflow-ID': 'run_20260208_011849_cucjzr1g', 'X-Parent-Execution-ID': 'exec_20260208_011849_mi85p4mr', 'X-Execution-ID': 'exec_202...
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"📞 Calling cost-analyzer agent...","tags":[],"timestamp":"2026-02-08T01:19:16.686318+08:00"},"message":"Note added successfully"}
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"✅ Policy: Covered=True","tags":[],"timestamp":"2026-02-08T01:19:16.686432+08:00"},"message":"Note added successfully"}
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '✅ Cost: Reasonable=True', 'tags': [], 'timestamp': 1770484766.916708, 'agent_node_id': 'claims-orchestrator'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011849_cucjzr1g', 'X-Workflow-ID': 'run_20260208_011849_cucjzr1g', 'X-Parent-Execution-ID': 'exec_20260208_011849_mi85p4mr', 'X-Execution-ID': 'exec_202...
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '🤔 Synthesizing final decision...', 'tags': [], 'timestamp': 1770484766.9198022, 'agent_node_id': 'claims-orchestrator'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011849_cucjzr1g', 'X-Workflow-ID': 'run_20260208_011849_cucjzr1g', 'X-Parent-Execution-ID': 'exec_20260208_011849_mi85p4mr', 'X-Execution-ID': 'exec_202...
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"🤔 Synthesizing final decision...","tags":[],"timestamp":"2026-02-08T01:19:26.922627+08:00"},"message":"Note added successfully"}
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"✅ Cost: Reasonable=True","tags":[],"timestamp":"2026-02-08T01:19:26.922889+08:00"},"message":"Note added successfully"}
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+🔍 DEBUG: Memory set operation for key: adjudication:CLM10001:final
+🔍 DEBUG: Memory set successful for key: adjudication:CLM10001:final
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '✅ ADJUDICATION COMPLETE: INVESTIGATE (confidence: 0.92, time: 47549ms)', 'tags': [], 'timestamp': 1770484776.811458, 'agent_node_id': 'claims-orchestrator'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011849_cucjzr1g', 'X-Workflow-ID': 'run_20260208_011849_cucjzr1g', 'X-Parent-Execution-ID': 'exec_20260208_011849_mi85p4mr', 'X-Execution-ID': 'exec_202...
+ℹ️ Execution exec_20260208_011849_mi85p4mr completed asynchronously
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"✅ ADJUDICATION COMPLETE: INVESTIGATE (confidence: 0.92, time: 47549ms)","tags":[],"timestamp":"2026-02-08T01:19:36.813642+08:00"},"message...
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: Sent async status update for exec_20260208_011849_mi85p4mr (attempt 1)
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+ℹ️ Stopping connection manager
+ℹ️ Reconnecting to memory events (attempt 1/5) in 1.0s...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [13239]
+⚠️ SIGTERM received - initiating graceful shutdown via uvicorn
+ℹ️ Shutdown notification sent

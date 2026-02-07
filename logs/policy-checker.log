@@ -1,0 +1,158 @@
+🔍 DEBUG: ResultCache initialized with max_size=5000, ttl=120.0
+🔍 DEBUG: DID system initialized
+🔍 DEBUG: Default port 8001 taken, using 8004
+ℹ️ Starting agent node 'policy-checker' on port 8004
+ℹ️ Agent server running at http://0.0.0.0:8004
+ℹ️ Available endpoints:
+🔍 DEBUG: Endpoint registered: GET /health
+🔍 DEBUG: Endpoint registered: GET /reasoners
+🔍 DEBUG: Endpoint registered: GET /skills
+🔍 DEBUG: Endpoint registered: POST /shutdown
+🔍 DEBUG: Endpoint registered: GET /status
+🔍 DEBUG: Endpoint registered: GET /info
+🔍 DEBUG: Endpoint registered: GET /mcp/status
+🔍 DEBUG: Endpoint registered: POST /mcp/{alias}/start
+🔍 DEBUG: Endpoint registered: POST /mcp/{alias}/stop
+🔍 DEBUG: Endpoint registered: POST /mcp/{alias}/restart
+🔍 DEBUG: Endpoint registered: GET /health/mcp
+🔍 DEBUG: Endpoint registered: POST /mcp/servers/{alias}/restart
+🔍 DEBUG: Endpoint registered: GET /mcp/servers/{alias}/tools
+🔍 DEBUG: Endpoint registered: POST /reasoners/verify_policy_coverage
+🔍 DEBUG: Fast lifecycle signal handler registered (SIGTERM only)
+🔍 DEBUG: Single-process mode
+⚠️ uvloop not available, using default asyncio loop
+🔍 DEBUG: Uvicorn configuration:
+🔍 DEBUG:   host: 0.0.0.0
+🔍 DEBUG:   port: 8004
+🔍 DEBUG:   reload: False
+🔍 DEBUG:   access_log: False
+🔍 DEBUG:   log_level: info
+🔍 DEBUG:   timeout_graceful_shutdown: 30
+🔍 DEBUG:   limit_concurrency: 1000
+🔍 DEBUG:   backlog: 2048
+INFO:     Started server process [13225]
+INFO:     Waiting for application startup.
+ℹ️ Starting connection manager
+🔍 DEBUG: Attempting connection to AgentField server
+🔍 DEBUG: Agent policy-checker registered successfully
+🔍 DEBUG: Registering agent with DID system: policy-checker
+🔍 DEBUG: Calling did_manager.register_agent() with 1 reasoners and 0 skills
+🔍 DEBUG: DID registration for agent: policy-checker (1 reasoners, 0 skills)
+❌ DID registration request failed: 404 - {"error":"endpoint not found"}
+⚠️ Failed to register agent policy-checker with DID system
+ℹ️ Connected to AgentField server
+ℹ️ Connected to AgentField server - full functionality available
+🔍 DEBUG: Enhanced heartbeat loop started (interval: 2s)
+ℹ️ Agent started with AgentField server connection
+ℹ️ Background MCP initialization started
+ℹ️ No MCP servers to initialize - agent ready
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8004 (Press CTRL+C to quit)
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+ℹ️ Background initialization complete - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '📄 Policy checker evaluating CLM10001', 'tags': [], 'timestamp': 1770484750.5744472, 'agent_node_id': 'policy-checker'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011909_r7sczxwg', 'X-Workflow-ID': 'run_20260208_011909_r7sczxwg', 'X-Parent-Execution-ID': 'exec_20260208_011909_5w9ee0ye', 'X-Execution-ID': 'exec_202...
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"📄 Policy checker evaluating CLM10001","tags":[],"timestamp":"2026-02-08T01:19:10.578521+08:00"},"message":"Note added successfully"}
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+🔍 DEBUG: Memory set operation for key: claim:CLM10001:policy_assessment
+🔍 DEBUG: Memory set successful for key: claim:CLM10001:policy_assessment
+🔍 DEBUG: NOTE DEBUG: Original api_base: http://localhost:8080/api/v1
+🔍 DEBUG: NOTE DEBUG: UI api_base: http://localhost:8080/api/ui/v1
+🔍 DEBUG: NOTE DEBUG: Full URL: http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: NOTE DEBUG: Payload: {'message': '✅ Policy check complete: COVERED', 'tags': [], 'timestamp': 1770484756.638484, 'agent_node_id': 'policy-checker'}
+🔍 DEBUG: NOTE DEBUG: Headers: {'X-Run-ID': 'run_20260208_011909_r7sczxwg', 'X-Workflow-ID': 'run_20260208_011909_r7sczxwg', 'X-Parent-Execution-ID': 'exec_20260208_011909_5w9ee0ye', 'X-Execution-ID': 'exec_202...
+ℹ️ Execution exec_20260208_011909_5w9ee0ye completed asynchronously
+🔍 DEBUG: NOTE DEBUG: Response status: 200
+🔍 DEBUG: NOTE DEBUG: Response text: {"success":true,"note":{"message":"✅ Policy check complete: COVERED","tags":[],"timestamp":"2026-02-08T01:19:16.64124+08:00"},"message":"Note added successfully"}
+🔍 DEBUG: ✅ Note successfully sent to http://localhost:8080/api/ui/v1/executions/note
+🔍 DEBUG: Sent async status update for exec_20260208_011909_5w9ee0ye (attempt 1)
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+💓 Enhanced heartbeat sent - Status: ready
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+ℹ️ Stopping connection manager
+ℹ️ Reconnecting to memory events (attempt 1/5) in 1.0s...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [13225]
+⚠️ SIGTERM received - initiating graceful shutdown via uvicorn
+ℹ️ Shutdown notification sent
