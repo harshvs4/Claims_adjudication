@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🏥 Claims Adjudication System
 
 Multi-agent health insurance claims adjudication using AgentField with memory and vector search.
@@ -270,5 +269,4 @@ Built for AgentField Hackathon
 ## 🙏 Acknowledgments
 
 - AgentField for the infrastructure
-- Munich Re for the real-world problem context
 - Anthropic/OpenAI for the LLMs
