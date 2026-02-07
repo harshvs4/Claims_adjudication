@@ -51,3 +51,7 @@ FRAUD_SCORE_THRESHOLDS = {
 # Memory Scopes
 MEMORY_SCOPE_SESSION = "session"
 MEMORY_SCOPE_GLOBAL = "global"
+
+# Logging Configuration
+SUPPRESS_HEARTBEAT_LOGS = True
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")

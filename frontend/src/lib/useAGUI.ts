@@ -166,7 +166,7 @@ export function useAGUI() {
     }
   }, []);
 
-  const startAdjudication = useCallback((claimId: string) => {
+  const startAdjudication = useCallback((claimId: string, intentType: 'full' | 'medical' | 'fraud' | 'policy' | 'cost' = 'full') => {
     if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
       console.error('WebSocket not connected');
       return;
@@ -178,11 +178,11 @@ export function useAGUI() {
       claim_id: claimId,
       status: 'running',
       stages: {
-        medical: 'pending',
-        fraud: 'pending',
-        policy: 'pending',
-        cost: 'pending',
-        decision: 'pending',
+        medical: intentType === 'full' || intentType === 'medical' ? 'pending' : 'pending',
+        fraud: intentType === 'full' || intentType === 'fraud' ? 'pending' : 'pending',
+        policy: intentType === 'full' || intentType === 'policy' ? 'pending' : 'pending',
+        cost: intentType === 'full' || intentType === 'cost' ? 'pending' : 'pending',
+        decision: intentType === 'full' ? 'pending' : 'pending',
       },
       assessments: {
         medical: null,
@@ -194,11 +194,12 @@ export function useAGUI() {
       error: null,
     }));
 
-    // Send start message
+    // Send start message with intent type
     wsRef.current.send(
       JSON.stringify({
         type: 'start_adjudication',
         claim_id: claimId,
+        intent_type: intentType,
       })
     );
   }, []);

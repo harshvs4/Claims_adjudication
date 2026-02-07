@@ -10,6 +10,19 @@ import asyncio
 import signal
 from threading import Thread
 import time
+import logging
+import os
+
+# Suppress noisy heartbeat logs
+os.environ['AGENTFIELD_LOG_LEVEL'] = 'WARNING'
+logging.getLogger('agentfield').setLevel(logging.WARNING)
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(message)s',  # Simplified format
+    handlers=[
+        logging.StreamHandler(sys.stdout)
+    ]
+)
 
 # Add parent directory to Python path
 sys.path.insert(0, str(Path(__file__).parent))
