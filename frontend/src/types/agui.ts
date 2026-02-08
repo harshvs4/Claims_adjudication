@@ -35,6 +35,27 @@ export interface StageStartedEvent extends AGUIEvent {
   };
 }
 
+export interface StageProgressEvent extends AGUIEvent {
+  type: 'stage_progress';
+  data: {
+    stage: string;
+    message: string;
+    progress: number;  // 0.0 to 1.0
+    step: number;
+    total_steps: number;
+  };
+}
+
+export interface AgentCommunicationEvent extends AGUIEvent {
+  type: 'agent_communication';
+  data: {
+    from_agent: string;
+    to_agents: string[];
+    message: string;
+    workflow_type: 'parallel' | 'sequential';
+  };
+}
+
 export interface StageCompletedEvent extends AGUIEvent {
   type: 'stage_completed';
   data: {
@@ -126,6 +147,23 @@ export interface AdjudicationResult {
 // Workflow State
 export type StageStatus = 'pending' | 'in_progress' | 'completed' | 'error';
 
+export interface ProgressLog {
+  stage: string;
+  message: string;
+  progress: number;
+  step: number;
+  total_steps: number;
+  timestamp: Date;
+}
+
+export interface AgentCommunication {
+  from_agent: string;
+  to_agents: string[];
+  message: string;
+  workflow_type: 'parallel' | 'sequential';
+  timestamp: Date;
+}
+
 export interface WorkflowState {
   claim_id: string | null;
   session_id: string | null;
@@ -146,4 +184,6 @@ export interface WorkflowState {
   };
   finalDecision: FinalDecision | null;
   error: string | null;
+  progressLogs: ProgressLog[];  // Real-time agent reasoning/progress logs
+  agentCommunications: AgentCommunication[];  // Agent-to-agent communications
 }

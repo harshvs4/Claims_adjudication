@@ -5,10 +5,13 @@
 
 import React from 'react';
 import { Loader2, Activity, ShieldAlert, FileText, DollarSign } from 'lucide-react';
+import { ExpandableLogPanel } from './ExpandableLogPanel';
+import { ProgressLog } from '@/types/agui';
 
 interface ProcessingCardProps {
   stage: 'medical' | 'fraud' | 'policy' | 'cost';
   message?: string;
+  progressLogs?: ProgressLog[];
 }
 
 const stageConfig = {
@@ -62,7 +65,7 @@ const stageConfig = {
   },
 };
 
-export const ProcessingCard: React.FC<ProcessingCardProps> = ({ stage, message }) => {
+export const ProcessingCard: React.FC<ProcessingCardProps> = ({ stage, message, progressLogs = [] }) => {
   const config = stageConfig[stage];
   const Icon = config.icon;
 
@@ -123,6 +126,15 @@ export const ProcessingCard: React.FC<ProcessingCardProps> = ({ stage, message }
           <div className="h-full bg-current animate-progress-bar w-full"></div>
         </div>
       </div>
+
+      {/* Expandable Log Panel - Shows real-time reasoning */}
+      {progressLogs.length > 0 && (
+        <ExpandableLogPanel
+          stage={stage}
+          logs={progressLogs}
+          isComplete={false}
+        />
+      )}
     </div>
   );
 };

@@ -16,7 +16,6 @@ import {
   CostAssessmentCard,
 } from '@/components/AssessmentCard';
 import { FinalDecisionCard } from '@/components/FinalDecisionCard';
-import { ProcessingCard } from '@/components/ProcessingCard';
 import {
   Activity,
   ShieldAlert,
@@ -26,7 +25,7 @@ import {
 } from 'lucide-react';
 
 export default function ClaimsAdjudicationPage() {
-  const { state, connect, startAdjudication, registerSummaryCallback, intentType, isConnected } = useAGUI();
+  const { state, connect, startAdjudication, registerSummaryCallback, isConnected } = useAGUI();
   const [sessionId] = useState(() => `session-${Date.now()}`);
   const chatInterfaceRef = useRef<ChatInterfaceHandle>(null);
 
@@ -171,51 +170,23 @@ export default function ClaimsAdjudicationPage() {
                   <h2 className="text-xl font-bold text-gray-900 mb-4">📊 Agent Assessments</h2>
                   <div className="grid grid-cols-1 gap-4">
                     {/* Medical Assessment */}
-                    {state.requestedAssessments.includes('medical') && (
-                      <>
-                        {state.stages.medical === 'in_progress' && (
-                          <ProcessingCard stage="medical" />
-                        )}
-                        {state.assessments.medical && (
-                          <MedicalAssessmentCard assessment={state.assessments.medical} />
-                        )}
-                      </>
+                    {state.requestedAssessments.includes('medical') && state.assessments.medical && (
+                      <MedicalAssessmentCard assessment={state.assessments.medical} />
                     )}
 
                     {/* Fraud Assessment */}
-                    {state.requestedAssessments.includes('fraud') && (
-                      <>
-                        {state.stages.fraud === 'in_progress' && (
-                          <ProcessingCard stage="fraud" />
-                        )}
-                        {state.assessments.fraud && (
-                          <FraudAssessmentCard assessment={state.assessments.fraud} />
-                        )}
-                      </>
+                    {state.requestedAssessments.includes('fraud') && state.assessments.fraud && (
+                      <FraudAssessmentCard assessment={state.assessments.fraud} />
                     )}
 
                     {/* Policy Assessment */}
-                    {state.requestedAssessments.includes('policy') && (
-                      <>
-                        {state.stages.policy === 'in_progress' && (
-                          <ProcessingCard stage="policy" />
-                        )}
-                        {state.assessments.policy && (
-                          <PolicyAssessmentCard assessment={state.assessments.policy} />
-                        )}
-                      </>
+                    {state.requestedAssessments.includes('policy') && state.assessments.policy && (
+                      <PolicyAssessmentCard assessment={state.assessments.policy} />
                     )}
 
                     {/* Cost Assessment */}
-                    {state.requestedAssessments.includes('cost') && (
-                      <>
-                        {state.stages.cost === 'in_progress' && (
-                          <ProcessingCard stage="cost" />
-                        )}
-                        {state.assessments.cost && (
-                          <CostAssessmentCard assessment={state.assessments.cost} />
-                        )}
-                      </>
+                    {state.requestedAssessments.includes('cost') && state.assessments.cost && (
+                      <CostAssessmentCard assessment={state.assessments.cost} />
                     )}
                   </div>
                 </div>

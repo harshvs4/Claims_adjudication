@@ -109,6 +109,8 @@ export function useAGUI() {
     },
     finalDecision: null,
     error: null,
+    progressLogs: [],
+    agentCommunications: [],
   });
 
   const [intentType, setIntentType] = useState<'full' | 'medical' | 'fraud' | 'policy' | 'cost' | 'multi'>('full');
@@ -184,6 +186,41 @@ export function useAGUI() {
             ...prev.stages,
             [stage]: 'in_progress' as StageStatus,
           },
+        }));
+        break;
+
+      case 'stage_progress':
+        // Add progress log entry
+        setState((prev) => ({
+          ...prev,
+          progressLogs: [
+            ...prev.progressLogs,
+            {
+              stage: event.data.stage,
+              message: event.data.message,
+              progress: event.data.progress,
+              step: event.data.step,
+              total_steps: event.data.total_steps,
+              timestamp: new Date(),
+            },
+          ],
+        }));
+        break;
+
+      case 'agent_communication':
+        // Add agent communication entry
+        setState((prev) => ({
+          ...prev,
+          agentCommunications: [
+            ...prev.agentCommunications,
+            {
+              from_agent: event.data.from_agent,
+              to_agents: event.data.to_agents,
+              message: event.data.message,
+              workflow_type: event.data.workflow_type,
+              timestamp: new Date(),
+            },
+          ],
         }));
         break;
 
@@ -300,6 +337,8 @@ export function useAGUI() {
       },
       finalDecision: null,
       error: null,
+      progressLogs: [],
+      agentCommunications: [],
     }));
 
     // Send start message with intent type and requested assessments

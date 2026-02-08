@@ -335,6 +335,17 @@ async def run_adjudication(session_id: str, claim_id: str, intent_type: str = "f
                     })
                 )
 
+                # Emit agent communication events for full workflow
+                await manager.send_event(
+                    session_id,
+                    create_event("agent_communication", session_id, {
+                        "from_agent": "workflow-orchestrator",
+                        "to_agents": ["medical-reasoner", "fraud-detector", "policy-checker", "cost-analyzer"],
+                        "message": "Orchestrator delegating assessments to specialized agents",
+                        "workflow_type": "parallel"
+                    })
+                )
+
                 response = await client.post(url, json={"input": {"claim_id": claim_id}})
 
                 if response.status_code != 200:
@@ -397,6 +408,21 @@ async def run_adjudication(session_id: str, claim_id: str, intent_type: str = "f
                 # Multi-agent or single agent: Call each requested agent sequentially
                 all_assessments = {}
 
+                # Emit agent communication event for multi-agent workflows
+                if len(assessments_to_run) > 1:
+                    agent_ids = [agent_map[a][0] for a in assessments_to_run if a in agent_map]
+                    await manager.send_event(
+                        session_id,
+                        create_event("agent_communication", session_id, {
+                            "from_agent": "workflow-orchestrator",
+                            "to_agents": agent_ids,
+                            "message": f"Processing {len(assessments_to_run)} requested assessments: {', '.join(assessments_to_run)}",
+                            "workflow_type": "sequential"
+                        })
+                    )
+                    logger.info(f"Emitted agent_communication event for multi-agent workflow: {agent_ids}")
+                    await asyncio.sleep(0.2)  # Small delay to ensure event is processed
+
                 for assessment_type in assessments_to_run:
                     if assessment_type not in agent_map:
                         continue
@@ -413,6 +439,48 @@ async def run_adjudication(session_id: str, claim_id: str, intent_type: str = "f
                             "message": f"Running {assessment_type} assessment..."
                         })
                     )
+
+                    # Emit progress events during execution
+                    progress_messages = {
+                        'medical': [
+                            "Loading claim data and medical records...",
+                            "Evaluating clinical necessity and guidelines...",
+                            "Analyzing treatment appropriateness...",
+                            "Checking supporting documentation...",
+                        ],
+                        'fraud': [
+                            "Loading historical claim patterns...",
+                            "Running ML fraud detection model...",
+                            "Analyzing provider billing patterns...",
+                            "Checking for temporal anomalies...",
+                        ],
+                        'policy': [
+                            "Loading policy details and coverage...",
+                            "Checking exclusions and limitations...",
+                            "Verifying prior authorization requirements...",
+                            "Analyzing policy compliance...",
+                        ],
+                        'cost': [
+                            "Loading regional cost benchmarks...",
+                            "Comparing claimed vs expected costs...",
+                            "Analyzing cost variance patterns...",
+                            "Evaluating overall reasonableness...",
+                        ],
+                    }
+
+                    # Emit initial progress
+                    if assessment_type in progress_messages:
+                        for i, msg in enumerate(progress_messages[assessment_type], 1):
+                            progress_event = create_event("stage_progress", session_id, {
+                                "stage": assessment_type,
+                                "message": msg,
+                                "progress": i / len(progress_messages[assessment_type]),
+                                "step": i,
+                                "total_steps": len(progress_messages[assessment_type])
+                            })
+                            await manager.send_event(session_id, progress_event)
+                            logger.info(f"Emitted stage_progress event for {assessment_type}: step {i}/{len(progress_messages[assessment_type])}: {msg}")
+                            await asyncio.sleep(0.5)  # Brief delay between progress updates
 
                     # Call the agent
                     response = await client.post(url, json={"input": {"claim_id": claim_id}})
