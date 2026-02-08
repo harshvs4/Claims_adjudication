@@ -3,7 +3,7 @@
  * Conversational UI for claims adjudication
  */
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { Send, Loader2, Bot, User } from 'lucide-react';
 import { clsx } from 'clsx';
 
@@ -15,12 +15,17 @@ interface Message {
 }
 
 interface ChatInterfaceProps {
-  onClaimSubmit: (claimId: string, intentType: 'full' | 'medical' | 'fraud' | 'policy' | 'cost') => void;
+  onClaimSubmit: (claimId: string, intentType: 'full' | 'medical' | 'fraud' | 'policy' | 'cost' | 'multi', requestedAssessments: string[]) => void;
   isProcessing: boolean;
   isConnected: boolean;
 }
 
-export function ChatInterface({ onClaimSubmit, isProcessing, isConnected }: ChatInterfaceProps) {
+export interface ChatInterfaceHandle {
+  addSummaryMessage: (summary: string) => void;
+}
+
+export const ChatInterface = forwardRef<ChatInterfaceHandle, ChatInterfaceProps>(
+  ({ onClaimSubmit, isProcessing, isConnected }, ref) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -40,6 +45,19 @@ export function ChatInterface({ onClaimSubmit, isProcessing, isConnected }: Chat
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Expose method to parent for adding summary messages
+  useImperativeHandle(ref, () => ({
+    addSummaryMessage: (summary: string) => {
+      const summaryMessage: Message = {
+        id: Date.now().toString(),
+        role: 'assistant',
+        content: summary,
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, summaryMessage]);
+    },
+  }));
 
   const extractClaimId = (text: string): string | null => {
     // Match patterns like CLM10001, CLM-10001, claim 10001, etc.
@@ -61,33 +79,68 @@ export function ChatInterface({ onClaimSubmit, isProcessing, isConnected }: Chat
     return null;
   };
 
-  const detectIntent = (text: string): { type: 'full' | 'medical' | 'fraud' | 'policy' | 'cost' | 'unknown', claimId: string | null } => {
-    const claimId = extractClaimId(text);
-    if (!claimId) {
-      return { type: 'unknown', claimId: null };
-    }
+  const detectIntentWithLLM = async (text: string): Promise<{
+    type: 'full' | 'medical' | 'fraud' | 'policy' | 'cost' | 'multi' | 'unknown',
+    claimId: string | null,
+    explanation: string,
+    requestedAssessments: string[]
+  }> => {
+    try {
+      // Call LLM-powered intent detection API
+      const response = await fetch('http://localhost:8000/api/detect-intent', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: text,
+        }),
+      });
 
-    const lowerText = text.toLowerCase();
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
 
-    // Check for specific assessment requests
-    if (lowerText.includes('cost') || lowerText.includes('price') || lowerText.includes('amount')) {
-      return { type: 'cost', claimId };
-    }
-    if (lowerText.includes('medical') || lowerText.includes('necessity') || lowerText.includes('treatment')) {
-      return { type: 'medical', claimId };
-    }
-    if (lowerText.includes('fraud') || lowerText.includes('risk') || lowerText.includes('suspicious')) {
-      return { type: 'fraud', claimId };
-    }
-    if (lowerText.includes('policy') || lowerText.includes('coverage') || lowerText.includes('covered')) {
-      return { type: 'policy', claimId };
-    }
+      const data = await response.json();
+      console.log('🤖 LLM Intent Detection:', data);
 
-    // Default to full adjudication
-    return { type: 'full', claimId };
+      return {
+        type: data.intent_type as 'full' | 'medical' | 'fraud' | 'policy' | 'cost' | 'multi' | 'unknown',
+        claimId: data.claim_id,
+        explanation: data.explanation,
+        requestedAssessments: data.requested_assessments || [],
+      };
+    } catch (error) {
+      console.error('Intent detection failed, falling back to keyword matching:', error);
+
+      // Fallback to simple keyword matching
+      const claimId = extractClaimId(text);
+      if (!claimId) {
+        return { type: 'unknown', claimId: null, explanation: 'No claim ID found', requestedAssessments: [] };
+      }
+
+      const lowerText = text.toLowerCase();
+
+      // Check for specific assessment requests
+      if (lowerText.includes('cost') || lowerText.includes('price') || lowerText.includes('amount')) {
+        return { type: 'cost', claimId, explanation: 'Detected cost analysis request', requestedAssessments: ['cost'] };
+      }
+      if (lowerText.includes('medical') || lowerText.includes('necessity') || lowerText.includes('treatment')) {
+        return { type: 'medical', claimId, explanation: 'Detected medical necessity request', requestedAssessments: ['medical'] };
+      }
+      if (lowerText.includes('fraud') || lowerText.includes('risk') || lowerText.includes('suspicious')) {
+        return { type: 'fraud', claimId, explanation: 'Detected fraud analysis request', requestedAssessments: ['fraud'] };
+      }
+      if (lowerText.includes('policy') || lowerText.includes('coverage') || lowerText.includes('covered')) {
+        return { type: 'policy', claimId, explanation: 'Detected policy coverage request', requestedAssessments: ['policy'] };
+      }
+
+      // Default to full adjudication
+      return { type: 'full', claimId, explanation: 'Running full adjudication', requestedAssessments: ['medical', 'fraud', 'policy', 'cost'] };
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim() || isProcessing) return;
 
@@ -100,15 +153,31 @@ export function ChatInterface({ onClaimSubmit, isProcessing, isConnected }: Chat
 
     setMessages((prev) => [...prev, userMessage]);
 
-    // Detect user intent
-    const intent = detectIntent(input);
+    // Clear input immediately for better UX
+    const userInput = input.trim();
+    setInput('');
+
+    // Show "thinking" message
+    const thinkingMessage: Message = {
+      id: (Date.now() + 1).toString(),
+      role: 'assistant',
+      content: '🤔 Understanding your request...',
+      timestamp: new Date(),
+    };
+    setMessages((prev) => [...prev, thinkingMessage]);
+
+    // Detect user intent using LLM
+    const intent = await detectIntentWithLLM(userInput);
+
+    // Remove thinking message
+    setMessages((prev) => prev.filter((m) => m.id !== thinkingMessage.id));
 
     if (intent.type === 'unknown' || !intent.claimId) {
       // User asked a question or provided unclear input
       const assistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: Date.now().toString(),
         role: 'assistant',
-        content: "I'd be happy to help! However, I need a valid Claim ID to process.\n\nYou can:\n• Run full adjudication: \"Process CLM10001\"\n• Get specific assessment: \"Cost analysis for CLM10001\"\n• Medical assessment: \"Medical necessity for CLM10002\"\n• Fraud check: \"Fraud analysis for CLM10003\"\n• Policy check: \"Coverage for CLM10004\"\n\nOr ask me questions about the adjudication process!",
+        content: `${intent.explanation}\n\nI'd be happy to help! However, I need a valid Claim ID to process.\n\nYou can:\n• Run full adjudication: \"Process CLM10001\"\n• Get specific assessment: \"Cost analysis for CLM10001\"\n• Medical assessment: \"Medical necessity for CLM10002\"\n• Fraud check: \"Fraud analysis for CLM10003\"\n• Policy check: \"Coverage for CLM10004\"\n\nOr try: \"Show me fraud and cost analysis of CLM10001\"`,
         timestamp: new Date(),
       };
 
@@ -117,26 +186,39 @@ export function ChatInterface({ onClaimSubmit, isProcessing, isConnected }: Chat
       // Generate appropriate response based on intent
       let responseContent = '';
 
+      const assessmentIcons: Record<string, string> = {
+        medical: '🏥 Medical Necessity',
+        fraud: '🔍 Fraud Detection',
+        policy: '📄 Policy Coverage',
+        cost: '💰 Cost Reasonableness',
+      };
+
       switch (intent.type) {
         case 'full':
-          responseContent = `Got it! Running FULL ADJUDICATION for claim ${intent.claimId}.\n\nI'll analyze:\n🏥 Medical Necessity\n🔍 Fraud Patterns\n📄 Policy Coverage\n💰 Cost Reasonableness\n\nPlease wait while all agents work...`;
+          responseContent = `✅ ${intent.explanation}\n\nRunning FULL ADJUDICATION for claim ${intent.claimId}.\n\nI'll analyze:\n🏥 Medical Necessity\n🔍 Fraud Patterns\n📄 Policy Coverage\n💰 Cost Reasonableness\n\nPlease wait while all agents work...`;
+          break;
+        case 'multi':
+          const assessmentList = intent.requestedAssessments
+            .map(a => assessmentIcons[a] || a)
+            .join('\n');
+          responseContent = `✅ ${intent.explanation}\n\nRunning CUSTOM ANALYSIS for claim ${intent.claimId}.\n\nI'll analyze:\n${assessmentList}\n\nPlease wait while the agents work...`;
           break;
         case 'medical':
-          responseContent = `Analyzing MEDICAL NECESSITY for claim ${intent.claimId}...\n\n🏥 Checking if treatment is medically necessary and appropriate.`;
+          responseContent = `✅ ${intent.explanation}\n\nAnalyzing MEDICAL NECESSITY for claim ${intent.claimId}...\n\n🏥 Checking if treatment is medically necessary and appropriate.`;
           break;
         case 'fraud':
-          responseContent = `Running FRAUD DETECTION for claim ${intent.claimId}...\n\n🔍 Analyzing patterns and checking for red flags.`;
+          responseContent = `✅ ${intent.explanation}\n\nRunning FRAUD DETECTION for claim ${intent.claimId}...\n\n🔍 Analyzing patterns and checking for red flags.`;
           break;
         case 'policy':
-          responseContent = `Checking POLICY COVERAGE for claim ${intent.claimId}...\n\n📄 Verifying coverage, exclusions, and authorization.`;
+          responseContent = `✅ ${intent.explanation}\n\nChecking POLICY COVERAGE for claim ${intent.claimId}...\n\n📄 Verifying coverage, exclusions, and authorization.`;
           break;
         case 'cost':
-          responseContent = `Analyzing COST ASSESSMENT for claim ${intent.claimId}...\n\n💰 Evaluating if costs are reasonable and within expected ranges.`;
+          responseContent = `✅ ${intent.explanation}\n\nAnalyzing COST ASSESSMENT for claim ${intent.claimId}...\n\n💰 Evaluating if costs are reasonable and within expected ranges.`;
           break;
       }
 
       const assistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: Date.now().toString(),
         role: 'assistant',
         content: responseContent,
         timestamp: new Date(),
@@ -144,11 +226,10 @@ export function ChatInterface({ onClaimSubmit, isProcessing, isConnected }: Chat
 
       setMessages((prev) => [...prev, assistantMessage]);
 
-      // Submit with intent type so backend knows which agent(s) to call
-      onClaimSubmit(intent.claimId, intent.type);
+      // Submit with intent type and requested assessments
+      onClaimSubmit(intent.claimId, intent.type, intent.requestedAssessments);
     }
 
-    setInput('');
     inputRef.current?.focus();
   };
 
@@ -305,4 +386,6 @@ export function ChatInterface({ onClaimSubmit, isProcessing, isConnected }: Chat
       </form>
     </div>
   );
-}
+});
+
+ChatInterface.displayName = 'ChatInterface';

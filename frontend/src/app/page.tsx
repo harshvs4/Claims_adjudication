@@ -5,9 +5,9 @@
  * Real-time multi-agent workflow visualization with conversational UI
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useAGUI } from '@/lib/useAGUI';
-import { ChatInterface } from '@/components/ChatInterface';
+import { ChatInterface, ChatInterfaceHandle } from '@/components/ChatInterface';
 import { StageIndicator } from '@/components/StageIndicator';
 import {
   MedicalAssessmentCard,
@@ -25,8 +25,9 @@ import {
 } from 'lucide-react';
 
 export default function ClaimsAdjudicationPage() {
-  const { state, connect, startAdjudication, isConnected } = useAGUI();
+  const { state, connect, startAdjudication, registerSummaryCallback, intentType, isConnected } = useAGUI();
   const [sessionId] = useState(() => `session-${Date.now()}`);
+  const chatInterfaceRef = useRef<ChatInterfaceHandle>(null);
 
   // Connect on mount
   useEffect(() => {
@@ -34,9 +35,18 @@ export default function ClaimsAdjudicationPage() {
     connect(sessionId);
   }, [sessionId, connect]);
 
-  const handleClaimSubmit = (claimId: string, intentType: 'full' | 'medical' | 'fraud' | 'policy' | 'cost') => {
-    console.log('🚀 Starting adjudication for:', claimId, 'Type:', intentType);
-    startAdjudication(claimId, intentType);
+  // Register summary callback
+  useEffect(() => {
+    registerSummaryCallback((summary: string) => {
+      if (chatInterfaceRef.current) {
+        chatInterfaceRef.current.addSummaryMessage(summary);
+      }
+    });
+  }, [registerSummaryCallback]);
+
+  const handleClaimSubmit = (claimId: string, intentType: 'full' | 'medical' | 'fraud' | 'policy' | 'cost' | 'multi', requestedAssessments: string[]) => {
+    console.log('🚀 Starting adjudication for:', claimId, 'Type:', intentType, 'Assessments:', requestedAssessments);
+    startAdjudication(claimId, intentType, requestedAssessments);
   };
 
   return (
@@ -61,6 +71,7 @@ export default function ClaimsAdjudicationPage() {
         {/* Left Side - Chat Interface */}
         <div className="w-1/3 min-w-[400px] p-6 flex flex-col">
           <ChatInterface
+            ref={chatInterfaceRef}
             onClaimSubmit={handleClaimSubmit}
             isProcessing={state.status === 'running'}
             isConnected={isConnected}
@@ -141,7 +152,7 @@ export default function ClaimsAdjudicationPage() {
                 </div>
               )}
 
-              {/* Assessment Results */}
+              {/* Assessment Results - Show cards for completed assessments */}
               {(state.assessments.medical ||
                 state.assessments.fraud ||
                 state.assessments.policy ||

@@ -16,6 +16,78 @@ import type {
 
 const WS_URL = 'ws://localhost:8000/ws';
 
+// Generate human-readable summary from assessment results
+function generateAssessmentSummary(stage: string, assessment: any): string | null {
+  if (!assessment) return null;
+
+  switch (stage) {
+    case 'medical':
+      return `✅ **Medical Assessment Complete**\n\n` +
+        `**Medical Necessity:** ${assessment.is_medically_necessary ? 'Approved ✓' : 'Not Approved ✗'}\n` +
+        `**Appropriateness:** ${assessment.is_appropriate ? 'Yes ✓' : 'No ✗'}\n` +
+        `**Confidence:** ${(assessment.confidence * 100).toFixed(0)}%\n\n` +
+        `**Clinical Rationale:** ${assessment.clinical_rationale}\n\n` +
+        (assessment.red_flags?.length > 0
+          ? `⚠️ **Red Flags:** ${assessment.red_flags.join(', ')}\n`
+          : '');
+
+    case 'fraud':
+      const riskLevel = assessment.fraud_score > 0.7 ? 'HIGH ⚠️' :
+                       assessment.fraud_score > 0.4 ? 'MEDIUM ⚡' : 'LOW ✓';
+      return `✅ **Fraud Detection Complete**\n\n` +
+        `**Risk Level:** ${riskLevel}\n` +
+        `**Fraud Score:** ${(assessment.fraud_score * 100).toFixed(0)}%\n` +
+        `**Confidence:** ${(assessment.confidence * 100).toFixed(0)}%\n\n` +
+        `**Analysis:** ${assessment.risk_analysis}\n\n` +
+        (assessment.red_flags?.length > 0
+          ? `🚩 **Red Flags Detected:**\n${assessment.red_flags.map((f: string) => `• ${f}`).join('\n')}\n`
+          : '✓ No red flags detected\n');
+
+    case 'policy':
+      return `✅ **Policy Coverage Complete**\n\n` +
+        `**Coverage Status:** ${assessment.is_covered ? 'Covered ✓' : 'Not Covered ✗'}\n` +
+        `**Requires Authorization:** ${assessment.requires_authorization ? 'Yes' : 'No'}\n` +
+        `**Confidence:** ${(assessment.confidence * 100).toFixed(0)}%\n\n` +
+        `**Policy Analysis:** ${assessment.policy_analysis}\n\n` +
+        (assessment.exclusions?.length > 0
+          ? `⚠️ **Exclusions Found:**\n${assessment.exclusions.map((e: string) => `• ${e}`).join('\n')}\n`
+          : '');
+
+    case 'cost':
+      const variance = assessment.cost_variance_percentage || 0;
+      const varianceStatus = Math.abs(variance) < 10 ? 'Within Range ✓' :
+                            variance > 0 ? `${variance.toFixed(0)}% Over Benchmark ⚠️` :
+                            `${Math.abs(variance).toFixed(0)}% Under Benchmark`;
+      return `✅ **Cost Assessment Complete**\n\n` +
+        `**Claimed Amount:** $${assessment.claimed_amount?.toLocaleString() || 0}\n` +
+        `**Expected Range:** $${assessment.expected_cost_min?.toLocaleString() || 0} - $${assessment.expected_cost_max?.toLocaleString() || 0}\n` +
+        `**Variance:** ${varianceStatus}\n` +
+        `**Reasonableness:** ${assessment.is_reasonable ? 'Reasonable ✓' : 'Questionable ⚠️'}\n\n` +
+        `**Cost Analysis:** ${assessment.cost_analysis}\n`;
+
+    default:
+      return null;
+  }
+}
+
+// Generate summary for final decision
+function generateDecisionSummary(decision: any, claimId: string): string {
+  const decisionLabel = decision.decision === 'APPROVE' ? '✅ APPROVED' :
+                       decision.decision === 'APPROVE_WITH_REVIEW' ? '✅ APPROVED (Review Required)' :
+                       decision.decision === 'INVESTIGATE' ? '🔍 INVESTIGATION REQUIRED' :
+                       decision.decision === 'DENY' ? '❌ DENIED' : '❓ UNKNOWN';
+
+  return `🎯 **Final Decision for ${claimId}**\n\n` +
+    `**Decision:** ${decisionLabel}\n` +
+    `**Approved Amount:** $${decision.approved_amount?.toLocaleString() || 0}\n` +
+    `**Confidence:** ${(decision.confidence * 100).toFixed(0)}%\n\n` +
+    (decision.denial_reason ? `**Denial Reason:** ${decision.denial_reason}\n\n` : '') +
+    `**Summary:** ${decision.reasoning}\n\n` +
+    (decision.key_factors?.length > 0
+      ? `**Key Factors:**\n${decision.key_factors.map((f: string, i: number) => `${i + 1}. ${f}`).join('\n')}`
+      : '');
+}
+
 export function useAGUI() {
   const [state, setState] = useState<WorkflowState>({
     claim_id: null,
@@ -38,8 +110,10 @@ export function useAGUI() {
     error: null,
   });
 
+  const [intentType, setIntentType] = useState<'full' | 'medical' | 'fraud' | 'policy' | 'cost' | 'multi'>('full');
   const wsRef = useRef<WebSocket | null>(null);
   const reconnectTimeoutRef = useRef<NodeJS.Timeout>();
+  const onSummaryCallbackRef = useRef<((summary: string) => void) | null>(null);
 
   const connect = useCallback((sessionId: string) => {
     // Close existing connection if any
@@ -126,27 +200,55 @@ export function useAGUI() {
             [completedStage]: assessment,
           },
         }));
+
+        // Generate summary for individual assessments (non-full workflows)
+        if (onSummaryCallbackRef.current && completedStage !== 'decision') {
+          const summary = generateAssessmentSummary(completedStage, assessment);
+          if (summary) {
+            onSummaryCallbackRef.current(summary);
+          }
+        }
         break;
 
       case 'workflow_completed':
-        setState((prev) => ({
-          ...prev,
-          status: 'completed',
-          stages: {
-            ...prev.stages,
-            decision: 'completed' as StageStatus,
-          },
-          finalDecision: {
+        // Check if this is a full workflow with a final decision
+        const hasFinalDecision = event.data.decision !== undefined && event.data.decision !== null;
+
+        if (hasFinalDecision) {
+          // Full workflow - create and set final decision
+          const finalDecision = {
             claim_id: event.data.claim_id,
             decision: event.data.decision,
             approved_amount: event.data.approved_amount,
-            denial_reason: null,
-            investigation_required: false,
+            denial_reason: event.data.denial_reason || null,
+            investigation_required: event.data.investigation_required || false,
             key_factors: event.data.key_factors || [],
             reasoning: event.data.reasoning,
             confidence: event.data.confidence,
-          },
-        }));
+          };
+
+          setState((prev) => ({
+            ...prev,
+            status: 'completed',
+            stages: {
+              ...prev.stages,
+              decision: 'completed' as StageStatus,
+            },
+            finalDecision,
+          }));
+
+          // Generate summary for full workflow completion
+          if (onSummaryCallbackRef.current) {
+            const summary = generateDecisionSummary(finalDecision, event.data.claim_id);
+            onSummaryCallbackRef.current(summary);
+          }
+        } else {
+          // Individual assessment - just mark as completed, no final decision
+          setState((prev) => ({
+            ...prev,
+            status: 'completed',
+          }));
+        }
         break;
 
       case 'error':
@@ -166,11 +268,14 @@ export function useAGUI() {
     }
   }, []);
 
-  const startAdjudication = useCallback((claimId: string, intentType: 'full' | 'medical' | 'fraud' | 'policy' | 'cost' = 'full') => {
+  const startAdjudication = useCallback((claimId: string, intent: 'full' | 'medical' | 'fraud' | 'policy' | 'cost' | 'multi' = 'full', requestedAssessments: string[] = []) => {
     if (!wsRef.current || wsRef.current.readyState !== WebSocket.OPEN) {
       console.error('WebSocket not connected');
       return;
     }
+
+    // Track the intent type
+    setIntentType(intent as any);
 
     // Reset state
     setState((prev) => ({
@@ -178,11 +283,11 @@ export function useAGUI() {
       claim_id: claimId,
       status: 'running',
       stages: {
-        medical: intentType === 'full' || intentType === 'medical' ? 'pending' : 'pending',
-        fraud: intentType === 'full' || intentType === 'fraud' ? 'pending' : 'pending',
-        policy: intentType === 'full' || intentType === 'policy' ? 'pending' : 'pending',
-        cost: intentType === 'full' || intentType === 'cost' ? 'pending' : 'pending',
-        decision: intentType === 'full' ? 'pending' : 'pending',
+        medical: intent === 'full' || intent === 'medical' || requestedAssessments.includes('medical') ? 'pending' : 'pending',
+        fraud: intent === 'full' || intent === 'fraud' || requestedAssessments.includes('fraud') ? 'pending' : 'pending',
+        policy: intent === 'full' || intent === 'policy' || requestedAssessments.includes('policy') ? 'pending' : 'pending',
+        cost: intent === 'full' || intent === 'cost' || requestedAssessments.includes('cost') ? 'pending' : 'pending',
+        decision: intent === 'full' ? 'pending' : 'pending',
       },
       assessments: {
         medical: null,
@@ -194,12 +299,13 @@ export function useAGUI() {
       error: null,
     }));
 
-    // Send start message with intent type
+    // Send start message with intent type and requested assessments
     wsRef.current.send(
       JSON.stringify({
         type: 'start_adjudication',
         claim_id: claimId,
-        intent_type: intentType,
+        intent_type: intent,
+        requested_assessments: requestedAssessments,
       })
     );
   }, []);
@@ -214,6 +320,10 @@ export function useAGUI() {
     }
   }, []);
 
+  const registerSummaryCallback = useCallback((callback: (summary: string) => void) => {
+    onSummaryCallbackRef.current = callback;
+  }, []);
+
   useEffect(() => {
     return () => {
       disconnect();
@@ -225,6 +335,8 @@ export function useAGUI() {
     connect,
     disconnect,
     startAdjudication,
+    registerSummaryCallback,
+    intentType,
     isConnected: wsRef.current?.readyState === WebSocket.OPEN,
   };
 }
