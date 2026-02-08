@@ -130,6 +130,7 @@ export interface WorkflowState {
   claim_id: string | null;
   session_id: string | null;
   status: 'idle' | 'running' | 'completed' | 'error';
+  requestedAssessments: string[];  // List of assessments requested for this workflow
   stages: {
     medical: StageStatus;
     fraud: StageStatus;

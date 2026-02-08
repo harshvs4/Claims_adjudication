@@ -16,6 +16,7 @@ import {
   CostAssessmentCard,
 } from '@/components/AssessmentCard';
 import { FinalDecisionCard } from '@/components/FinalDecisionCard';
+import { ProcessingCard } from '@/components/ProcessingCard';
 import {
   Activity,
   ShieldAlert,
@@ -108,40 +109,52 @@ export default function ClaimsAdjudicationPage() {
           {/* Workflow Status */}
           {state.status !== 'idle' && (
             <>
-              {/* Stage Indicators */}
+              {/* Stage Indicators - Dynamic based on requested assessments */}
               <div className="mb-6">
                 <h2 className="text-xl font-bold text-gray-900 mb-4">🔄 Workflow Progress</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-3">
-                  <StageIndicator
-                    name="medical"
-                    label="Medical"
-                    status={state.stages.medical}
-                    icon={<Activity className="w-6 h-6 text-blue-600" />}
-                  />
-                  <StageIndicator
-                    name="fraud"
-                    label="Fraud"
-                    status={state.stages.fraud}
-                    icon={<ShieldAlert className="w-6 h-6 text-red-600" />}
-                  />
-                  <StageIndicator
-                    name="policy"
-                    label="Policy"
-                    status={state.stages.policy}
-                    icon={<FileText className="w-6 h-6 text-green-600" />}
-                  />
-                  <StageIndicator
-                    name="cost"
-                    label="Cost"
-                    status={state.stages.cost}
-                    icon={<DollarSign className="w-6 h-6 text-yellow-600" />}
-                  />
-                  <StageIndicator
-                    name="decision"
-                    label="Decision"
-                    status={state.stages.decision}
-                    icon={<Sparkles className="w-6 h-6 text-purple-600" />}
-                  />
+                  {/* Only show stage indicators for requested assessments */}
+                  {state.requestedAssessments.includes('medical') && (
+                    <StageIndicator
+                      name="medical"
+                      label="Medical"
+                      status={state.stages.medical}
+                      icon={<Activity className="w-6 h-6 text-blue-600" />}
+                    />
+                  )}
+                  {state.requestedAssessments.includes('fraud') && (
+                    <StageIndicator
+                      name="fraud"
+                      label="Fraud"
+                      status={state.stages.fraud}
+                      icon={<ShieldAlert className="w-6 h-6 text-red-600" />}
+                    />
+                  )}
+                  {state.requestedAssessments.includes('policy') && (
+                    <StageIndicator
+                      name="policy"
+                      label="Policy"
+                      status={state.stages.policy}
+                      icon={<FileText className="w-6 h-6 text-green-600" />}
+                    />
+                  )}
+                  {state.requestedAssessments.includes('cost') && (
+                    <StageIndicator
+                      name="cost"
+                      label="Cost"
+                      status={state.stages.cost}
+                      icon={<DollarSign className="w-6 h-6 text-yellow-600" />}
+                    />
+                  )}
+                  {/* Show decision indicator only for full workflows */}
+                  {state.finalDecision !== null && (
+                    <StageIndicator
+                      name="decision"
+                      label="Decision"
+                      status={state.stages.decision}
+                      icon={<Sparkles className="w-6 h-6 text-purple-600" />}
+                    />
+                  )}
                 </div>
               </div>
 
@@ -152,25 +165,57 @@ export default function ClaimsAdjudicationPage() {
                 </div>
               )}
 
-              {/* Assessment Results - Show cards for completed assessments */}
-              {(state.assessments.medical ||
-                state.assessments.fraud ||
-                state.assessments.policy ||
-                state.assessments.cost) && (
+              {/* Assessment Results - Show processing cards and completed cards dynamically */}
+              {state.requestedAssessments.length > 0 && (
                 <div className="mb-6">
                   <h2 className="text-xl font-bold text-gray-900 mb-4">📊 Agent Assessments</h2>
                   <div className="grid grid-cols-1 gap-4">
-                    {state.assessments.medical && (
-                      <MedicalAssessmentCard assessment={state.assessments.medical} />
+                    {/* Medical Assessment */}
+                    {state.requestedAssessments.includes('medical') && (
+                      <>
+                        {state.stages.medical === 'in_progress' && (
+                          <ProcessingCard stage="medical" />
+                        )}
+                        {state.assessments.medical && (
+                          <MedicalAssessmentCard assessment={state.assessments.medical} />
+                        )}
+                      </>
                     )}
-                    {state.assessments.fraud && (
-                      <FraudAssessmentCard assessment={state.assessments.fraud} />
+
+                    {/* Fraud Assessment */}
+                    {state.requestedAssessments.includes('fraud') && (
+                      <>
+                        {state.stages.fraud === 'in_progress' && (
+                          <ProcessingCard stage="fraud" />
+                        )}
+                        {state.assessments.fraud && (
+                          <FraudAssessmentCard assessment={state.assessments.fraud} />
+                        )}
+                      </>
                     )}
-                    {state.assessments.policy && (
-                      <PolicyAssessmentCard assessment={state.assessments.policy} />
+
+                    {/* Policy Assessment */}
+                    {state.requestedAssessments.includes('policy') && (
+                      <>
+                        {state.stages.policy === 'in_progress' && (
+                          <ProcessingCard stage="policy" />
+                        )}
+                        {state.assessments.policy && (
+                          <PolicyAssessmentCard assessment={state.assessments.policy} />
+                        )}
+                      </>
                     )}
-                    {state.assessments.cost && (
-                      <CostAssessmentCard assessment={state.assessments.cost} />
+
+                    {/* Cost Assessment */}
+                    {state.requestedAssessments.includes('cost') && (
+                      <>
+                        {state.stages.cost === 'in_progress' && (
+                          <ProcessingCard stage="cost" />
+                        )}
+                        {state.assessments.cost && (
+                          <CostAssessmentCard assessment={state.assessments.cost} />
+                        )}
+                      </>
                     )}
                   </div>
                 </div>

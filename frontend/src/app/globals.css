@@ -31,3 +31,21 @@ body {
     --foreground-rgb: 0, 0, 0;
   }
 }
+
+@layer utilities {
+  @keyframes progress-bar {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-progress-bar {
+    animation: progress-bar 2s ease-in-out infinite;
+  }
+}

@@ -93,6 +93,7 @@ export function useAGUI() {
     claim_id: null,
     session_id: null,
     status: 'idle',
+    requestedAssessments: [],
     stages: {
       medical: 'pending',
       fraud: 'pending',
@@ -171,6 +172,7 @@ export function useAGUI() {
           ...prev,
           status: 'running',
           claim_id: event.data.claim_id,
+          requestedAssessments: event.data.requested_assessments || [],
         }));
         break;
 
@@ -282,6 +284,7 @@ export function useAGUI() {
       ...prev,
       claim_id: claimId,
       status: 'running',
+      requestedAssessments: requestedAssessments,
       stages: {
         medical: intent === 'full' || intent === 'medical' || requestedAssessments.includes('medical') ? 'pending' : 'pending',
         fraud: intent === 'full' || intent === 'fraud' || requestedAssessments.includes('fraud') ? 'pending' : 'pending',
